@@ -1,0 +1,70 @@
+# ==============================================================================
+# BASELINE CONFIGURATION: Mechanistic Reverse Osmosis Model
+# Reference: Sowgath, Sarker & Mujtaba (2025), "Design of Multi Stage Reverse
+#            Osmosis Process for Reuse of Textile Wastewater",
+#            Chemical Engineering Transactions, Vol. 117.
+# ==============================================================================
+
+metadata:
+  study_citation: "Sowgath, Sarker & Mujtaba (2025). Chem. Eng. Trans. 117."
+  plant_location: "Nice Cotton Limited, Gazipur, Bangladesh"
+  membrane_model: "Toray TML20D-400 low-fouling spiral-wound RO membrane"
+  validation_stage: "Stage 1 - Baseline Single Element Mechanistic Verification"
+
+# ------------------------------------------------------------------------------
+# 1. VALUES EXPLICITLY REPORTED IN THE SOURCE PAPER
+# ------------------------------------------------------------------------------
+source_reported:
+  # Membrane geometry & physical characteristics
+  membrane_area: 37.0                # Effective membrane surface area [m²]
+  membrane_diameter: 0.201           # Module element outer diameter [m] (8 inches)
+  
+  # Parameter estimation values reported by Sowgath et al. (2025)
+  Aw: 9.08e-5                        # Water permeability [m/(bar·s)] -> 9.08e-10 m/(Pa·s)
+  As: 1.1834e-9                      # Salt permeability [m/s]
+  
+  # Initial validation operating conditions
+  feed_flow: 30.0                    # Feed volumetric flow rate [m³/h]
+  feed_concentration: 2000.0         # Feed TDS concentration [mg/L]
+  feed_pressure_psi: 225.0           # Feed pressure [psi]
+  feed_pressure_bar: 15.5132         # Feed pressure converted [bar] (225 psi)
+  temperature_celsius: 25.0          # Operating temperature [°C]
+
+  # Membrane reference envelope specifications (Toray TML20D-400 datasheet)
+  max_operating_pressure_bar: 41.0   # Maximum design pressure [bar]
+  nominal_product_flow_m3_day: 39.7  # Nominal manufacturer product/permeate flow [m³/day] (10,500 GPD)
+  min_product_flow_m3_day: 31.8      # Minimum manufacturer product/permeate flow [m³/day] (8,400 GPD)
+  nominal_water_recovery: 0.15       # Manufacturer standard test recovery [15%]
+  nominal_salt_rejection_min: 0.9965 # Minimum salt rejection [99.65%]
+  nominal_salt_rejection_nom: 0.9980 # Nominal salt rejection [99.80%]
+
+# ------------------------------------------------------------------------------
+# 2. MODELING ASSUMPTIONS INTRODUCED BY US (ACADEMIC TRANSPARENCY)
+# ------------------------------------------------------------------------------
+assumptions:
+  # High-pressure pump energy parameters
+  pump_efficiency: 0.80              # High-pressure pump isentropic/electrical efficiency [-]
+  permeate_pressure_bar: 1.01325     # Permeate side backpressure [bar] (atmospheric)
+  inlet_feed_pressure_bar: 1.01325   # Suction / raw feed pressure before HP pump [bar]
+
+  # Solute thermodynamics & chemistry
+  vanthoff_factor: 2.0               # Dissociation factor for NaCl equivalent salt [-]
+  solute_molar_mass_g_mol: 58.44     # Molar mass of NaCl equivalent [g/mol]
+
+  # Concentration polarization parameters
+  cp_mode: "mode_a"                  # "mode_a" (specified k) or "mode_b" (correlation-based)
+  mass_transfer_coefficient: 5.0e-5  # Default mass transfer coefficient k [m/s] (Mode A)
+  
+  # Channel geometry assumptions for Mode B (correlation-based Sherwood calculation)
+  feed_spacer_thickness_mm: 0.76     # Typical 30 mil feed spacer thickness [mm]
+  feed_channel_void_fraction: 0.85   # Spacer void fraction / porosity [-]
+  solute_diffusivity_m2_s: 1.5e-9    # NaCl aqueous diffusion coefficient at 25°C [m²/s]
+  water_density_kg_m3: 997.0         # Water density at 25°C [kg/m³]
+  water_dynamic_viscosity_pa_s: 8.9e-4 # Water dynamic viscosity at 25°C [Pa·s]
+
+  # Hydraulic pressure drop across element
+  pressure_drop_bar: 0.0             # Element feed-side pressure drop [bar] (0 for baseline single element)
+
+  # Numerical solver configuration
+  solver_tolerance: 1.0e-8           # Convergence tolerance for Scipy solver
+  max_solver_iterations: 200         # Maximum iterations for nonlinear algebraic solver

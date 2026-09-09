@@ -1,0 +1,85 @@
+# Configuration for Stage 2 Industrial Textile Wastewater RO Baseline Model
+# Reference: Sowgath, Sarker & Mujtaba (2025), Chemical Engineering Transactions, Vol. 117
+# Industrial Site: Nice Cotton Ltd. MBR-RO Textile Effluent Reclamation
+
+metadata:
+  model_type: "multi_stage_industrial_ro"
+  membrane_model: "Toray TML20D-400"
+  feed_source: "MBR-Treated Textile Wastewater (Nice Cotton Ltd.)"
+  status: "STAGE 2 INDUSTRIAL BASELINE & FEASIBILITY"
+
+# Level B Textile Stream Characterization (Published MBR Effluent / RO Feed)
+water_quality_feed:
+  tds_mg_l: 2041.0       # Total Dissolved Solids (used in Level A osmotic thermodynamics)
+  cod_mg_l: 51.0         # Chemical Oxygen Demand
+  bod_mg_l: 7.0          # Biochemical Oxygen Demand
+  tss_mg_l: 3.0          # Total Suspended Solids
+  colour_pt_co: 300.0    # Platinum-Cobalt color units
+  ph: 8.0                # Feed pH
+  temperature_celsius: 25.0
+
+# Level B Target / Reported Product Streams (for Auditing & Comparison)
+published_targets:
+  recovery_target: 0.70          # Published 70% overall water recovery benchmark
+  reported_salt_rejection: 0.73  # Published ~73% text benchmark
+  permeate_reported:
+    tds_mg_l: 18.0
+    cod_mg_l: 5.0
+    bod_mg_l: 2.0
+    tss_mg_l: 0.0
+    colour_pt_co: "BDL"          # Below Detection Limit
+    ph: 7.5
+  reject_reported:
+    tds_mg_l: 3064.0
+    cod_mg_l: 55.0
+    bod_mg_l: 9.0
+    tss_mg_l: 3.0
+    colour_pt_co: 550.0
+    ph: 7.8
+
+# Membrane Element Physical Specifications (Toray TML20D-400)
+membrane_properties:
+  membrane_area_m2: 37.0
+  membrane_diameter_m: 0.201
+  max_operating_pressure_bar: 41.0
+
+# Transport Parameters Provenance Ledger
+transport_parameters:
+  # Manufacturer-reconciled effective water permeability (Primary Physical Baseline)
+  Aw_physical_m_bar_s: 1.0232e-6       # 3.6835 LMH/bar (1.0232e-11 m/(Pa·s))
+  Aw_physical_class: "MANUFACTURER-DERIVED EFFECTIVE PARAMETER"
+  
+  # Literature reported water permeability from Sowgath et al. (2025)
+  Aw_literature_m_bar_s: 9.08e-5       # 326.88 LMH/bar (9.08e-10 m/(Pa·s))
+  Aw_literature_class: "LITERATURE-REPORTED PARAMETER"
+  
+  # Literature reported salt permeability from Sowgath et al. (2025)
+  As_literature_m_s: 1.1834e-9         # 0.00426 LMH
+  As_literature_class: "LITERATURE-REPORTED PARAMETER"
+  
+  # Manufacturer-derived salt permeability for nominal 99.8% rejection
+  As_manufacturer_m_s: 1.7827e-8       # 0.06418 LMH
+  As_manufacturer_class: "MANUFACTURER-DERIVED PARAMETER"
+  
+  # Assumed Mass Transfer & Hydraulics
+  mass_transfer_coefficient_m_s: 5.0e-5  # 180.0 LMH (Mode A)
+  k_class: "ASSUMED PARAMETER"
+  element_pressure_drop_bar: 0.15        # Feed channel hydraulic loss per element
+  pump_efficiency: 0.80
+
+# Multi-Stage System Topology & Design Configuration
+system_architecture:
+  feed_flow_m3_hr: 30.0                  # Operational feed flow rate reported in paper
+  stage_connection: "concentrate_to_stage2" # "concentrate_to_stage2" or "permeate_to_stage2"
+  
+  stages:
+    - name: "Stage 1"
+      elements_per_vessel: 3             # 3 elements in series per vessel (source specified)
+      parallel_vessels: 4                # Configurable parallel vessel count
+      feed_pressure_bar: 18.0            # Stage 1 feed pump delivery pressure [bar]
+      
+    - name: "Stage 2"
+      elements_per_vessel: 3             # 3 elements in series per vessel (source specified)
+      parallel_vessels: 2                # Configurable parallel vessel count (2:1 stage ratio)
+      feed_pressure_bar: 25.0            # Stage 2 boosted feed pressure [bar] (interstage booster)
+      interstage_booster_enabled: true

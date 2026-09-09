@@ -1,0 +1,6 @@
+Metric,Manufacturer Target,Model (As_literature),Rel Error (As_lit),Model (As_mfr_derived),Rel Error (As_mfr)
+Permeate flow (m3/day),39.70,39.70,0.000%,39.71,0.032%
+Permeate flow (m3/h),1.6542,1.6542,0.000%,1.6547,0.032%
+Water flux (LMH),44.71,44.71,0.006%,44.72,0.025%
+Recovery (%),15.00%,15.00%,0.000%,15.00%,0.032%
+Salt rejection (%),99.80% (Min: 99.65%),99.9867%,0.187%,99.8001%,0.000%

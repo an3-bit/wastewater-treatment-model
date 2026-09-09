@@ -1,0 +1,169 @@
+{
+  "Random Forest": {
+    "overall_recovery_pct": {
+      "n_estimators": 300,
+      "max_depth": 25,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    "permeate_tds_mgL": {
+      "n_estimators": 300,
+      "max_depth": 25,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    "concentrate_tds_mgL": {
+      "n_estimators": 300,
+      "max_depth": 25,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    "average_flux_LMH": {
+      "n_estimators": 300,
+      "max_depth": 25,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    "SEC_kWh_m3": {
+      "n_estimators": 300,
+      "max_depth": 25,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    "maximum_element_recovery_pct": {
+      "n_estimators": 300,
+      "max_depth": 25,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    "maximum_polarization_modulus": {
+      "n_estimators": 300,
+      "max_depth": 25,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": null
+    }
+  },
+  "XGBoost": {
+    "overall_recovery_pct": {
+      "n_estimators": 200,
+      "max_depth": 4,
+      "learning_rate": 0.05,
+      "subsample": 0.8,
+      "colsample_bytree": 0.9,
+      "reg_alpha": 0.01,
+      "reg_lambda": 1.0
+    },
+    "permeate_tds_mgL": {
+      "n_estimators": 300,
+      "max_depth": 6,
+      "learning_rate": 0.03,
+      "subsample": 0.85,
+      "colsample_bytree": 1.0,
+      "reg_alpha": 0.05,
+      "reg_lambda": 1.0
+    },
+    "concentrate_tds_mgL": {
+      "n_estimators": 200,
+      "max_depth": 4,
+      "learning_rate": 0.05,
+      "subsample": 0.8,
+      "colsample_bytree": 0.9,
+      "reg_alpha": 0.01,
+      "reg_lambda": 1.0
+    },
+    "average_flux_LMH": {
+      "n_estimators": 200,
+      "max_depth": 4,
+      "learning_rate": 0.05,
+      "subsample": 0.8,
+      "colsample_bytree": 0.9,
+      "reg_alpha": 0.01,
+      "reg_lambda": 1.0
+    },
+    "SEC_kWh_m3": {
+      "n_estimators": 200,
+      "max_depth": 4,
+      "learning_rate": 0.05,
+      "subsample": 0.8,
+      "colsample_bytree": 0.9,
+      "reg_alpha": 0.01,
+      "reg_lambda": 1.0
+    },
+    "maximum_element_recovery_pct": {
+      "n_estimators": 300,
+      "max_depth": 6,
+      "learning_rate": 0.03,
+      "subsample": 0.85,
+      "colsample_bytree": 1.0,
+      "reg_alpha": 0.05,
+      "reg_lambda": 1.0
+    },
+    "maximum_polarization_modulus": {
+      "n_estimators": 400,
+      "max_depth": 7,
+      "learning_rate": 0.03,
+      "subsample": 0.9,
+      "colsample_bytree": 1.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 0.5
+    }
+  },
+  "ANN / MLP": {
+    "overall_recovery_pct": {
+      "hidden_layer_sizes": "(256, 128, 64)",
+      "activation": "relu",
+      "alpha": 0.001,
+      "learning_rate_init": 0.001,
+      "batch_size": 64
+    },
+    "permeate_tds_mgL": {
+      "hidden_layer_sizes": "(128, 64)",
+      "activation": "relu",
+      "alpha": 0.0001,
+      "learning_rate_init": 0.003,
+      "batch_size": 32
+    },
+    "concentrate_tds_mgL": {
+      "hidden_layer_sizes": "(256, 128, 64)",
+      "activation": "relu",
+      "alpha": 0.001,
+      "learning_rate_init": 0.001,
+      "batch_size": 64
+    },
+    "average_flux_LMH": {
+      "hidden_layer_sizes": "(128, 128, 64)",
+      "activation": "relu",
+      "alpha": 0.001,
+      "learning_rate_init": 0.002,
+      "batch_size": 32
+    },
+    "SEC_kWh_m3": {
+      "hidden_layer_sizes": "(256, 128, 64)",
+      "activation": "relu",
+      "alpha": 0.001,
+      "learning_rate_init": 0.001,
+      "batch_size": 64
+    },
+    "maximum_element_recovery_pct": {
+      "hidden_layer_sizes": "(128, 128, 64)",
+      "activation": "relu",
+      "alpha": 0.001,
+      "learning_rate_init": 0.002,
+      "batch_size": 32
+    },
+    "maximum_polarization_modulus": {
+      "hidden_layer_sizes": "(128, 64)",
+      "activation": "relu",
+      "alpha": 0.0001,
+      "learning_rate_init": 0.003,
+      "batch_size": 32
+    }
+  }
+}

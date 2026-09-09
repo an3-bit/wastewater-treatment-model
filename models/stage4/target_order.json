@@ -1,0 +1,9 @@
+[
+  "overall_recovery_pct",
+  "permeate_tds_mgL",
+  "concentrate_tds_mgL",
+  "average_flux_LMH",
+  "SEC_kWh_m3",
+  "maximum_element_recovery_pct",
+  "maximum_polarization_modulus"
+]

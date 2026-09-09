@@ -1,0 +1,26 @@
+Parameter,Symbol,Value,Unit,Classification,Assessment
+Membrane Effective Area (Am),Am,37.0,m2,SOURCE-REPORTED,Toray TML20D-400 element effective surface area.
+Module Outer Diameter (d),d,0.201,m,SOURCE-REPORTED,Standard 8-inch module outer diameter.
+Water Permeability (Aw),Aw,9.08e-5,m/(bar·s),SOURCE-REPORTED,Parameter estimation value from paper; corresponds to 326.88 LMH/bar (7.2x - 100x higher than standard RO).
+Salt Permeability (As),As,1.1834e-9,m/s,SOURCE-REPORTED,Parameter estimation value from paper; corresponds to 0.00426 LMH.
+Feed Volumetric Flow (Qf),Qf,30.0,m3/h,SOURCE-REPORTED,Reported operating feed condition in parameter estimation table; physical grouping (element vs stage) not established.
+Feed Salinity (Cf),Cf,2000.0,mg/L,SOURCE-REPORTED,Baseline MBR-treated textile wastewater feed salinity.
+Feed Pressure (Pf),Pf,15.5132,bar,SOURCE-REPORTED,Reported as 225 psi.
+Operating Temperature (T),T,25.0,degC,SOURCE-REPORTED,298.15 K.
+"Nominal Product Flow (Qp,nom)","Qp,nom",39.7,m3/day,SOURCE-REPORTED,"Toray datasheet nominal product/permeate flow (1.654 m3/h, 44.71 LMH at 15% recovery)."
+"Minimum Product Flow (Qp,min)","Qp,min",31.8,m3/day,SOURCE-REPORTED,"Toray datasheet minimum product/permeate flow (1.325 m3/h, 35.81 LMH at 15% recovery)."
+Feed Osmotic Pressure (pi_f),pi_f,1.6968,bar,DERIVED,"Calculated via van 't Hoff equation (i=2.0, Mw=58.44 g/mol)."
+Transmembrane Pressure (dP),dP,14.5000,bar,DERIVED,Pf - P_permeate = 15.5132 - 1.01325 = 14.5000 bar.
+"Implied Test Feed Flow (Qf,implied)","Qf,implied",11.03,m3/h,DERIVED,"Qp,nom / 0.15 = 39.7 / (24 * 0.15) = 11.028 m3/h."
+Manufacturer Test Flux,"Jw,test",44.71,LMH,DERIVED,"Qp,nom / Am = 39.7 m3/day / 37 m2 = 44.707 LMH (Envelope: 35.81 - 44.71 LMH)."
+Mass Transfer Coeff (k),k,5.0e-5,m/s,ASSUMED,Mode A baseline film theory velocity (5.0e-5 m/s = 180 LMH).
+Pump Efficiency (eta_pump),eta_pump,0.80,-,ASSUMED,High-pressure pump isentropic/electrical efficiency.
+van 't Hoff Factor (i),i,2.0,-,ASSUMED,Complete dissociation for 1:1 NaCl-equivalent electrolyte.
+Feed Channel Delta P,dP_element,0.0,bar,ASSUMED,Single element feed channel pressure drop.
+Water Volumetric Flux (Jw),Jw,322.22,LMH,CALCULATED,Solution-diffusion flux coupled with concentration polarization equilibrium.
+Water Recovery (WR),WR,39.74,%,CALCULATED,Model calculated recovery under Qf = 30 m3/h.
+Salt Rejection (SR),SR,99.9895,%,CALCULATED,Solute rejection driven by high dilution flux (Jw >> As).
+Polarization Modulus (Cm/Cb),Cm/Cb,5.9899,-,CALCULATED,exp(Jw/k) = exp(8.95e-5 / 5.0e-5) = 5.990.
+Surface Salinity (Cm),Cm,15929.68,mg/L,CALCULATED,Surface concentration build-up creating 13.51 bar osmotic backpressure.
+Permeate Salinity (Cp),Cp,0.21,mg/L,CALCULATED,Permeate TDS = As*Cm / (Jw + As).
+Effective Driving Force (dP_eff),dP_eff,0.9858,bar,CALCULATED,dP - (pi_m - pi_p) = 14.5000 - (13.5144 - 0.0002) = 0.9858 bar.

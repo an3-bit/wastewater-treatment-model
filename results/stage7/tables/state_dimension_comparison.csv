@@ -1,0 +1,4 @@
+State Representation,State Dimension (n),Meas Dimension (m),Effective Rank,Rank Deficient,Condition Number,Relative Computational Cost,Axial Diagnostic Fidelity,Recommendation
+Model A (Full 15-Element State),15,10,4,YES,inf,6.2x,High (Element-level),Rejected (Unobservable parallel modes)
+Model B (Axial 6-Zone State),6,10,4,YES,inf,2.6x,Medium (Stage Lead/Mid/Tail),RECOMMENDED (Primary Digital Twin Model)
+Model C (Lumped 2-Stage State),2,10,2,NO,6.64e+03,1.0x,Low (Stage Average),Viable Lightweight Fallback

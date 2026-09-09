@@ -1,0 +1,46 @@
+# Configuration for Stage 1 Manufacturer Validation Run
+# Membrane Element: Toray TML20D-400 (Low-Fouling Polyamide RO Element)
+# Reference: Toray Datasheet / Standard Manufacturer Test Conditions
+
+metadata:
+  model_type: "single_element_mechanistic"
+  membrane_model: "Toray TML20D-400"
+  test_protocol: "Manufacturer Standard Test (Clean NaCl)"
+  status: "PHYSICALLY VALIDATED AGAINST MANUFACTURER PERFORMANCE"
+
+membrane_specifications:
+  membrane_area_m2: 37.0
+  membrane_diameter_m: 0.201
+  max_operating_pressure_bar: 41.0
+  nominal_product_flow_m3_day: 39.7
+  min_product_flow_m3_day: 31.8
+  nominal_water_recovery: 0.15
+  nominal_salt_rejection: 0.9980
+  min_salt_rejection: 0.9965
+
+operating_conditions:
+  feed_flow_m3_hr: 11.028            # Implied by 15% recovery on 39.7 m3/day nominal permeate
+  feed_concentration_mg_l: 2000.0    # Standard NaCl test concentration
+  feed_pressure_bar: 15.5132         # 225.0 psi
+  temperature_celsius: 25.0
+  permeate_pressure_bar: 1.01325
+  feed_ph: 7.0
+
+transport_parameters:
+  # Manufacturer-reconciled effective water permeability
+  Aw_m_bar_s: 1.0232e-6             # 3.6835 LMH/bar (1.0232e-11 m/(Pa·s))
+  Aw_classification: "MANUFACTURER-DERIVED EFFECTIVE PARAMETER"
+  
+  # Literature reported salt permeability from Sowgath et al. (2025)
+  As_literature_m_s: 1.1834e-9      # 0.00426 LMH
+  As_literature_classification: "LITERATURE-REPORTED PARAMETER"
+  
+  # Back-calculated salt permeability for nominal 99.8% rejection
+  As_manufacturer_m_s: 1.7827e-8    # 0.06418 LMH
+  As_manufacturer_classification: "MANUFACTURER-DERIVED PARAMETER"
+  
+  # Assumed mass transfer coefficient & pump efficiency
+  mass_transfer_coefficient_m_s: 5.0e-5  # 180.0 LMH (Mode A)
+  k_classification: "ASSUMED PARAMETER"
+  pump_efficiency: 0.80
+  element_pressure_drop_bar: 0.0

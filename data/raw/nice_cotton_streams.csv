@@ -1,0 +1,5 @@
+Stream,TDS_mg_L,TSS_mg_L,Colour_Pt_Co,BOD_mg_L,COD_mg_L,pH,Classification,Reference
+Untreated Textile Wastewater,2200.0,180.0,2500.0,350.0,1178.0,11.0,SOURCE-REPORTED INDUSTRIAL DATA,"Sowgath, Sarker & Mujtaba (2025), Table 1"
+MBR-Treated Water / RO Feed,2041.0,3.0,300.0,7.0,51.0,8.0,SOURCE-REPORTED INDUSTRIAL DATA,"Sowgath, Sarker & Mujtaba (2025), Table 1"
+RO Permeate,18.0,0.0,BDL,2.0,5.0,7.5,SOURCE-REPORTED INDUSTRIAL DATA,"Sowgath, Sarker & Mujtaba (2025), Table 1"
+RO Reject,3064.0,3.0,550.0,9.0,55.0,7.8,SOURCE-REPORTED INDUSTRIAL DATA,"Sowgath, Sarker & Mujtaba (2025), Table 1"

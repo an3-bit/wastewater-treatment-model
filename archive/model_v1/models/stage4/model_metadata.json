@@ -1,0 +1,55 @@
+{
+  "project": "AI-Enabled Digital Twin for Fouling-Aware Optimization of Textile Wastewater Reuse",
+  "stage": "Stage 4: Machine-Learning Surrogate Model Development",
+  "training_dataset": "data/generated/stage3_engineering_acceptable.csv (train split)",
+  "train_rows": 1569,
+  "val_rows": 336,
+  "test_rows": 336,
+  "boundary_stress_rows": 2712,
+  "ood_rows": 200,
+  "features": [
+    "feed_flow_m3h",
+    "feed_tds_mgL",
+    "temperature_C",
+    "stage1_pressure_bar",
+    "stage2_pressure_bar"
+  ],
+  "targets": [
+    "overall_recovery_pct",
+    "permeate_tds_mgL",
+    "concentrate_tds_mgL",
+    "average_flux_LMH",
+    "SEC_kWh_m3",
+    "maximum_element_recovery_pct",
+    "maximum_polarization_modulus"
+  ],
+  "random_seed": 42,
+  "models_evaluated": [
+    "Linear Regression",
+    "Random Forest",
+    "XGBoost",
+    "ANN / MLP"
+  ],
+  "curated_envelope_ranges": {
+    "feed_flow_m3h": [
+      20.0022,
+      39.9967
+    ],
+    "feed_tds_mgL": [
+      1501.8,
+      2999.7
+    ],
+    "temperature_C": [
+      20.0,
+      34.98
+    ],
+    "stage1_pressure_bar": [
+      10.001,
+      19.998
+    ],
+    "stage2_pressure_bar": [
+      14.001,
+      27.691
+    ]
+  }
+}

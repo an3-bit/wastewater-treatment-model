@@ -1,0 +1,2 @@
+parameter,calibrated_value,unit,target_decline_pct,achieved_decline_pct,target_exposure_L_m2,clean_resistance_R_m,accumulated_R_f,residual_pct,identifiability
+specific_fouling_resistance (r_spec),18048827181109.0,m^-1 / (m^3/m^2),15.0,15.000000000000002,625.0,109757777472117.14,19369019553903.03,1.7763568394002505e-15,EXACTLY_IDENTIFIED_SINGLE_PARAMETER

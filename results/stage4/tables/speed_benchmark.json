@@ -1,0 +1,10 @@
+{
+  "surrogate_model": "XGBoost",
+  "n_evaluations": 10000,
+  "surrogate_total_seconds": 0.11204220000217902,
+  "surrogate_evals_per_sec": 89252.085373239,
+  "surrogate_ms_per_eval": 0.011204220000217901,
+  "mechanistic_time_per_eval_ms": 17.566979999974137,
+  "mechanistic_evals_per_sec": 56.92498084482775,
+  "speedup_factor": 1567.889598707674
+}

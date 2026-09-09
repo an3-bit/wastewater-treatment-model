@@ -1,0 +1,50 @@
+{
+  "model_version": "2.0-pressure-corrected",
+  "status": "AUTHORITATIVE_PRODUCTION",
+  "generation_timestamp_utc": "2026-09-08T13:16:38.303299+00:00",
+  "pressure_convention": {
+    "description": "Standard Toray test pressure 225 psi is defined as transmembrane differential pressure delta_P",
+    "standard_test_delta_p_bar": 15.5132,
+    "standard_test_delta_p_psi": 225.0,
+    "permeate_reference_pressure_bar": 1.01325
+  },
+  "membrane_specifications": {
+    "model": "Toray TML20D-400",
+    "membrane_type": "Low-Fouling Aromatic Polyamide",
+    "active_area_m2": 37.0,
+    "module_diameter_m": 0.201,
+    "nominal_daily_permeate_m3_day": 39.7,
+    "nominal_recovery_fraction": 0.15,
+    "nominal_salt_rejection": 0.998,
+    "minimum_salt_rejection": 0.9965,
+    "manufacturer_max_operating_pressure_bar": 41.0,
+    "manufacturer_max_operating_pressure_pa": 4100000.0
+  },
+  "transport_parameters": {
+    "Aw_authoritative_m_pa_s": 9.446312125982804e-12,
+    "Aw_authoritative_m_bar_s": 9.446312125982804e-07,
+    "Aw_authoritative_lmh_bar": 3.400672365353809,
+    "As_textile_model_derived_m_s": 1.7827e-08,
+    "As_pure_nacl_literature_m_s": 1.1834e-09,
+    "k_mass_transfer_coefficient_m_s": 5e-05,
+    "water_viscosity_25C_pa_s": 0.0008904389816146542,
+    "Rm_clean_membrane_resistance_m_inv": 118886774448802.17
+  },
+  "fouling_parameters": {
+    "r_spec_calibrated_m_inv_per_m3_m2": 26854424346082.375,
+    "empirical_anchor_volume_l_m2": 625.0,
+    "empirical_anchor_permeability_decline_pct": 15.0,
+    "alpha_polarization_exponent": 1.0,
+    "gamma_concentration_exponent": 1.0,
+    "cleaning_recovery_efficiency": 0.9
+  },
+  "plant_configuration": {
+    "total_elements": 15,
+    "stage1_vessels": 3,
+    "stage2_vessels": 2,
+    "elements_per_vessel": 3,
+    "total_membrane_area_m2": 555.0,
+    "pump_efficiency": 0.8,
+    "interstage_element_pressure_drop_bar": 0.15
+  }
+}

@@ -1,0 +1,14 @@
+Sensor Name,Symbol,Unit,Technology,Nominal Std Dev,Low Std Dev,High Std Dev,Nominal Rel Error (%),Provenance Classification,Notes
+feed_flow_m3h,Q_f,m3/h,Electromagnetic flowmeter (inline),0.45,0.15,1.0,1.5,ASSUMED / STUDY VALUE,Typical textile wastewater inlet flowmeter (accuracy +/- 0.5-2.0% FS)
+feed_tds_mgL,C_f,mg/L,Toroidal inductive conductivity cell (temperature-compensated),20.0,5.0,50.0,1.0,ASSUMED / STUDY VALUE,Linear conversion factor 0.65 mg/L per uS/cm from calibrated baseline
+temperature_C,T,degC,Pt100 4-wire RTD Class A transmitter,0.3,0.1,0.8,1.2,ASSUMED / STUDY VALUE,Standard immersion RTD with 4-20mA transmitter
+stage1_pressure_bar,P_1,bar,Piezoresistive ceramic diaphragm pressure transmitter,0.15,0.05,0.4,1.0,ASSUMED / STUDY VALUE,High-pressure feed pump discharge pressure gauge (+/- 0.5-1.0% FS)
+total_permeate_flow_m3h,"Q_p,tot",m3/h,Electromagnetic flowmeter / Coriolis meter,0.25,0.08,0.6,1.5,ASSUMED / STUDY VALUE,Combined permeate manifold meter
+permeate_tds_mgL,"C_p,tot",mg/L,Low-conductivity 2-electrode contacting cell,0.5,0.15,1.5,5.0,ASSUMED / STUDY VALUE,Permeate purity monitor (nominal ~10 mg/L TDS)
+stage2_pressure_bar,P_2,bar,Piezoresistive pressure transmitter,0.18,0.06,0.45,1.0,ASSUMED / STUDY VALUE,Stage 2 booster discharge pressure
+interstage_pressure_bar,P_int,bar,Piezoresistive pressure transmitter,0.15,0.05,0.4,1.2,ASSUMED / STUDY VALUE,Inter-stage suction manifold pressure
+concentrate_tds_mgL,"C_c,tot",mg/L,Toroidal inductive conductivity cell (high salinity),50.0,15.0,120.0,1.0,ASSUMED / STUDY VALUE,Brine discharge concentration monitor (~5000 mg/L)
+total_electrical_power_kw,W_elec,kW,True-RMS 3-phase digital power analyzer,0.3,0.1,0.8,1.5,ASSUMED / STUDY VALUE,VFD / motor power telemetry (+/- 1.0% reading)
+stage1_permeate_flow_m3h,"Q_p,1",m3/h,Electromagnetic flowmeter (Stage 1 header),0.18,0.06,0.45,1.5,ASSUMED / STUDY VALUE,Optional individual stage 1 permeate flowmeter
+stage2_permeate_flow_m3h,"Q_p,2",m3/h,Electromagnetic flowmeter (Stage 2 header),0.1,0.03,0.25,1.5,ASSUMED / STUDY VALUE,Optional individual stage 2 permeate flowmeter
+stage1_concentrate_tds_mgL,"C_c,1",mg/L,Toroidal inductive conductivity cell (interstage),35.0,10.0,90.0,1.0,ASSUMED / STUDY VALUE,Optional interstage concentrate salinity monitor

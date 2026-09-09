@@ -1,0 +1,4 @@
+Sensor Configuration,Sensor Count,EKF RMSE Rf (m^-1),EKF MAE Decline (%),EKF Convergence (h),UKF RMSE Rf (m^-1),UKF MAE Decline (%),UKF Convergence (h),Practical Assessment
+Case 1 (Minimal Sensor Set: 6 sensors),6,5.04e+11,0.164,15.0,4.11e+28,57.711,0.0,Adequate for lumped trends; misses axial profile
+Case 2 (Standard Sensor Set: 10 sensors),10,3.55e+11,0.118,11.0,8.30e+27,53.303,0.0,RECOMMENDED: Balanced skid instrumentation
+Case 3 (Rich Sensor Set: 13 sensors),13,2.54e+11,0.074,11.0,7.91e+27,53.620,0.0,Maximum fidelity; higher capital cost

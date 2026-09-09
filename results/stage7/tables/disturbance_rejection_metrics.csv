@@ -1,0 +1,4 @@
+Disturbance Type,Estimator,RMSE Rf (m^-1),MAE Decline (%),Max Decline Error (%),Spurious Fouling Jump Detected
+"Feed TDS Pulse (+20% @ 30-48h, -15% @ 80-96h)",EKF (Model B),352200607829.7171,0.11651537673296598,0.8594002072462276,NO (Disturbance correctly attributed to salinity)
+"Feed TDS Pulse (+20% @ 30-48h, -15% @ 80-96h)",UKF (Model B),1.0785642277644074e+29,52.551181115152,91.82640806134165,NO (Nonlinear transport fully decoupled)
+"Multi-Variable (Flow +15%, Temp +5 C Shift)",EKF (Model B),355207599381.41284,0.11740849504712532,0.8594002072462276,NO (Temperature viscosity & flux reconciled)

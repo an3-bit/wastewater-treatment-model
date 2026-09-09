@@ -1,0 +1,5 @@
+Metric,Manufacturer,Model,Relative Error
+Permeate flow (m3/day),39.70,39.70,0.000%
+Water flux (LMH),44.71,44.71,0.006%
+Recovery (%),15.00%,15.00%,0.000%
+Salt rejection (%),99.80% (Min: 99.65%),99.9867%,0.187%

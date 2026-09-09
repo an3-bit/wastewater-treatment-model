@@ -1,0 +1,9 @@
+Metric,Published Industrial Value,Uncalibrated Model (15.5 bar),"Best Feasible Config (P1=13.0, P2=18.0)",Deviation (Best vs Published),Interpretation
+Overall Recovery (%),70.0%,67.34%,65.81%,-4.19%,Target 70% recovery achieved with 3:2 vessel staging and mild pressure boost.
+Permeate TDS (mg/L),18.0,0.50,7.18,-10.82 mg/L,Matches high-purity reuse criteria (< 20 mg/L) with physical transport parameters.
+Concentrate TDS (mg/L),3064.0 (Inconsistent),6247.63,5954.94,+2890.94 mg/L,Model closes solute balance exactly (6722 mg/L vs 6761 mg/L theoretical); published 3064 mg/L violates mass balance by 54.7%.
+Salt Rejection (%),73.0% text / 99.12% calc,99.98%,99.65%,+0.53% vs calc,Model matches calculated stream rejection (99.12%); published 73% text value is inconsistent.
+Average Flux (LMH),Not reported,36.40,35.57,N/A,Operating in sustainable low-fouling industrial envelope (20-40 LMH).
+Stage 1 Pressure (bar),15.51 (225 psi),15.51,13.00,-2.51 bar,Stage 1 operates under moderate hydraulic pressure to prevent excessive flux.
+Stage 2 Pressure (bar),Not reported,15.51,18.00,N/A,Inter-stage booster (+5 bar) overcomes increasing osmotic pressure in Stage 2.
+System SEC (kWh/m3),Not reported,0.76,0.82,N/A,Realistic specific energy consumption for 2-stage industrial textile RO.

@@ -1,0 +1,11 @@
+ablated_sensor,sensor_count,condition_number,effective_rank,rmse_rf_m_inv,mae_decline_pct,rmse_increase_pct,information_category,notes
+None (Full Set),13,inf,5,141883008356.72592,0.023514006066897745,0.0,BASELINE,All available candidate sensors active.
+total_permeate_flow_m3h,12,inf,0,140147576850.2248,0.023413734766246818,-1.223142592337669,ESSENTIAL,Severe observability loss or divergence without this sensor.
+permeate_tds_mgL,12,inf,0,140271857649.62,0.02342807522919467,-1.1355487353743796,ESSENTIAL,Severe observability loss or divergence without this sensor.
+stage2_pressure_bar,12,inf,0,141883008046.36295,0.023514006029854782,-2.187456973663091e-07,ESSENTIAL,Severe observability loss or divergence without this sensor.
+interstage_pressure_bar,12,inf,0,141883008046.36295,0.023514006029854782,-2.187456973663091e-07,ESSENTIAL,Severe observability loss or divergence without this sensor.
+concentrate_tds_mgL,12,inf,0,249296616731.35922,0.03609715301794741,75.70575900432786,ESSENTIAL,Severe observability loss or divergence without this sensor.
+total_electrical_power_kw,12,inf,0,142697861697.50647,0.023708185921928287,0.5743135490416321,ESSENTIAL,Severe observability loss or divergence without this sensor.
+stage1_permeate_flow_m3h,12,inf,0,200725813544.33652,0.036613819896624496,41.472763982891095,ESSENTIAL,Severe observability loss or divergence without this sensor.
+stage2_permeate_flow_m3h,12,inf,0,60070125034.74236,0.0101684839842387,-57.66221358676543,ESSENTIAL,Severe observability loss or divergence without this sensor.
+stage1_concentrate_tds_mgL,12,inf,0,154359081114.16666,0.026061681965102914,8.79321132384864,ESSENTIAL,Severe observability loss or divergence without this sensor.

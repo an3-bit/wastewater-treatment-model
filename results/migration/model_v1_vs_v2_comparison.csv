@@ -1,0 +1,29 @@
+Category,Metric,Model_V1,Model_V2,Difference,Classification
+Membrane Physics,Toray Standard Test Pressure Delta P (bar),14.5000,15.5132,+1.0132 bar (+6.99%),MATERIALLY CHANGED (PHYSICAL CONVENTION)
+Membrane Physics,Water Permeability Aw (m/(Pa.s)),1.023200e-11,9.446312e-12,-7.68e-13 m/(Pa.s) (-7.50%),MATERIALLY CHANGED (PHYSICAL CONVENTION)
+Membrane Physics,Water Permeability Aw (LMH/bar),3.683520,3.400672,-0.282848 LMH/bar (-7.68%),MATERIALLY CHANGED (PHYSICAL CONVENTION)
+Membrane Physics,Clean Membrane Resistance Rm (m^-1),1.097800e+14,1.188868e+14,+9.1068e+12 m^-1 (+8.30%),NUMERICALLY SHIFTED
+Membrane Physics,Calibrated Specific Fouling Resistance r_spec (m^-1 / (m^3/m^2)),1.805200e+13,1.954988e+13,+1.4979e+12 m^-1/(m^3/m^2) (+8.30%),NUMERICALLY SHIFTED
+Stage 1 Validation,Permeate Flow Qp (m3/day),39.70,39.70,0.00 m3/day (0.000%),UNCHANGED (EXACT MATCH)
+Stage 1 Validation,Average Flux Jw (LMH),44.71,44.71,0.00 LMH (0.006% rel error),UNCHANGED (EXACT MATCH)
+Stage 1 Validation,Recovery Y (%),15.00%,15.00%,0.00% (0.000% rel error),UNCHANGED (EXACT MATCH)
+Stage 2 Baseline,Baseline Overall Recovery (%),69.3597%,65.4543%,-3.9054% (-5.63% rel),NUMERICALLY SHIFTED
+Stage 2 Baseline,Baseline SEC (kWh/m3),0.771027,0.824396,+0.053369 kWh/m3 (+6.92%),NUMERICALLY SHIFTED
+Stage 2 Baseline,Baseline Max Element Recovery (%),23.6858%,21.2441%,-2.4417% (-10.31% rel),NUMERICALLY SHIFTED
+Stage 2 Baseline,Baseline Max Polarization Modulus beta,1.301863,1.281999,-0.019864 (-1.53%),NUMERICALLY SHIFTED
+Stage 3 Dataset,Engineering Acceptable Scenarios (<= 30% Elem Rec),"2,241 (45.25%)","2,670 (53.63%)",+429 scenarios (+8.38% yield),NUMERICALLY SHIFTED
+Stage 3 Dataset,Train / Val / Test Partition Sizes,"1,569 / 336 / 336","1,868 / 401 / 401",+299 train / +65 val / +65 test,NUMERICALLY SHIFTED
+Stage 4 Surrogates,ANN Test Set Overall Recovery R2,0.99978,0.99979,+0.00001,UNCHANGED (EXCELLENT FIT)
+Stage 4 Surrogates,ANN Inference Speed-up vs Mechanistic Simulator,"1,520x","1,568x",+48x,UNCHANGED
+Stage 5 Optimization,Baseline Dominance Status,STRICTLY DOMINATED (by 59 candidates),STRICTLY DOMINATED (by 59 candidates),0 candidates (Identical dominance structure),UNCHANGED (STRUCTURAL TRUTH)
+Stage 5 Optimization,"Strategy A (Max Recovery) Operating Pressures (P1, P2)","19.08 bar, 19.73 bar","20.00 bar, 20.25 bar","+0.92 bar P1, +0.52 bar P2",NUMERICALLY SHIFTED
+Stage 5 Optimization,Strategy A Max Feasible Recovery (%),82.17%,84.35%,+2.18%,NUMERICALLY SHIFTED
+Stage 5 Optimization,"Strategy B (Min SEC) Operating Pressures (P1, P2)","15.30 bar, 15.30 bar","15.80 bar, 15.80 bar","+0.50 bar P1, +0.50 bar P2",NUMERICALLY SHIFTED
+Stage 5 Optimization,Strategy B Clean SEC (kWh/m3),0.7303,0.7641,+0.0338 kWh/m3 (+4.63%),NUMERICALLY SHIFTED
+Stage 5 Optimization,"Strategy D (Balanced Knee) Operating Pressures (P1, P2)","15.05 bar, 15.80 bar","16.06 bar, 16.41 bar","+1.01 bar P1, +0.61 bar P2",NUMERICALLY SHIFTED
+Stage 5 Optimization,Strategy D Clean Recovery (%) / SEC (kWh/m3),71.05% / 0.7340 kWh/m3,70.16% / 0.7665 kWh/m3,-0.89% Rec / +0.0325 kWh/m3 SEC,NUMERICALLY SHIFTED
+Stage 6 Dynamic Fouling,Baseline 7-Day Cumulative Permeate (m3),"2,217.4","2,082.7",-134.7 m3 (-6.07%),NUMERICALLY SHIFTED
+Stage 6 Dynamic Fouling,Baseline 7-Day Dynamic Average SEC (kWh/m3),1.2597,1.3682,+0.1085 kWh/m3 (+8.61%),NUMERICALLY SHIFTED
+Stage 6 Dynamic Fouling,Strategy A 7-Day Cumulative Permeate (m3),"2,581.4","2,626.2",+44.8 m3 (+1.74%),NUMERICALLY SHIFTED
+Stage 6 Dynamic Fouling,Strategy D 7-Day Cumulative Permeate (m3),"2,376.1","2,332.1",-44.0 m3 (-1.85%),NUMERICALLY SHIFTED
+Stage 6 Dynamic Fouling,Dynamic Pareto Trade-off Structure & Strategy Ranking,Strategy D dominates Baseline; Strategy A yields max water; Strategy C yields min fouling,Strategy D dominates Baseline; Strategy A yields max water; Strategy C yields min fouling,"Identical ranking, dominance, and structural trade-offs",UNCHANGED (STRUCTURAL TRUTH)
