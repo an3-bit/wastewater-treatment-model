@@ -1,0 +1,4 @@
+Metric,Value_KES,Notes
+Oracle (Perfect State Visibility) Net Economic Value,10200320.88023537,Theoretical upper bound
+EKF Digital Twin (Virtual Sensing) Net Economic Value,10200320.88023537,Standard 10-sensor skid estimator
+Imperfect State Estimation Penalty (Oracle Gap),0.0,0.00% of potential upper bound

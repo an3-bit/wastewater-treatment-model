@@ -1,0 +1,5 @@
+Metric,Value,Unit,Baseline_Reference
+Minimum Freshwater Purchase Price for Positive DT Net Value,0.0,KES/m3,93.0
+Maximum Electricity Tariff before DT Advantage Evaporates,100.0,KES/kWh,13.74
+Maximum Allowable Digital Twin Annual OPEX,3040694.4675774686,KES/year,250000.0
+Maximum Justifiable Implementation CAPEX (2-Year Payback Target),5546760.330995005,KES,1200000.0

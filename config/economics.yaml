@@ -1,0 +1,194 @@
+# ==============================================================================
+# AUTHORITATIVE TECHNO-ECONOMIC CONFIGURATION (STAGE 8)
+# AI-Enabled Digital Twin for Textile Wastewater Reuse
+# All values specify provenance: source, source_type, reference_year, notes
+# ==============================================================================
+
+provenance_metadata:
+  framework_version: "Stage 8 Techno-Economic Supervisory Optimization"
+  base_currency: "KES"
+  usd_kes_exchange_rate: 130.0
+  created_date: "2026-09-09"
+  scientific_status: "virtual-plant techno-economic study"
+
+plant_operations:
+  operating_hours_per_year:
+    value: 8000.0
+    unit: "h/year"
+    source: "Standard 24/7 industrial textile manufacturing schedule (333.3 days)"
+    source_type: "SCENARIO ASSUMPTION"
+    reference_year: 2024
+    notes: "Assumes continuous 3-shift operation with planned plant maintenance outages."
+  
+  nominal_feed_flow_m3_h:
+    value: 30.0
+    unit: "m3/h"
+    source: "Textile RO pilot plant design specification"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Design hydraulic throughput for 3:2 staging array."
+
+tariffs_and_utilities:
+  water_purchase_cost:
+    value: 93.0
+    unit: "KES/m3"
+    source: "Nairobi City Water and Sewerage Company / Industrial Tariff Schedule"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Commercial/Industrial bulk potable water supply tariff."
+
+  electricity_energy_rate:
+    value: 13.74
+    unit: "KES/kWh"
+    source: "Energy and Petroleum Regulatory Authority (EPRA) Commercial/Industrial CI2 Schedule"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Base energy charge excluding fuel energy cost and forex pass-through."
+
+  wastewater_discharge_cost:
+    value: 35.0
+    unit: "KES/m3"
+    source: "National Environment Management Authority (NEMA) Industrial Effluent Discharge Fees"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Sewerage surcharge fee per m3 of industrial wastewater discharged to municipal mains."
+
+cleaning_and_maintenance:
+  cip_chemical_cost_per_event:
+    value: 4500.0
+    unit: "KES/event"
+    source: "Industrial RO cleaning chemical market quotation (EDTA, NaOH, Citric Acid)"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Cost for 2-step alkaline-acid cleaning batch chemicals for 15-element skid."
+
+  cip_water_volume_m3:
+    value: 3.5
+    unit: "m3/event"
+    source: "Toray Membrane Technical Manual CIP Flush Volume Guidelines"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Volume of permeate and RO feed water required for chemical prep and displacement flush."
+
+  cip_energy_kwh:
+    value: 12.0
+    unit: "kWh/event"
+    source: "CIP recirculation pump power consumption rating (3 kW x 4 h)"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Recirculation and heating energy consumed during 4.0 h CIP procedure."
+
+  cip_labour_hours:
+    value: 2.0
+    unit: "h/event"
+    source: "Plant operator shift log time study"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Direct operator supervision required for chemical dosing and isolation valve switching."
+
+  cip_labour_rate_kes_h:
+    value: 650.0
+    unit: "KES/h"
+    source: "Kenya Association of Manufacturers (KAM) Skilled Operator Wage Guide"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Fully burdened technician wage rate."
+
+  cleaning_duration_hours:
+    value: 4.0
+    unit: "hours"
+    source: "Toray TM720D Recommended Cleaning Protocol"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Standard duration: 1h alkaline soak, 1h acid wash, 2h rinse/circulation."
+
+  cleaning_efficiency_nominal:
+    value: 0.90
+    unit: "dimensionless"
+    source: "Stage 6 Dynamic Fouling & Literature Recovery Kinetics"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Fraction of reversible fouling resistance (Rf) removed per standard CIP (Rf_after = 0.10 * Rf_before)."
+
+  downtime_lost_revenue_rate_kes_h:
+    value: 850.0
+    unit: "KES/h"
+    source: "Equalization buffer storage opportunity cost analysis"
+    source_type: "SCENARIO ASSUMPTION"
+    reference_year: 2024
+    notes: "Net operational penalty for plant downtime when permeate production is suspended."
+
+membrane_capital_and_replacement:
+  membrane_element_purchase_cost:
+    value: 45000.0
+    unit: "KES/element"
+    source: "Toray TM720D-400 commercial distributor unit price (~USD 346)"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "8-inch spiral-wound polyamide composite membrane element (37.0 m2 active area)."
+
+  number_of_membrane_elements:
+    value: 15
+    unit: "elements"
+    source: "3:2 Staging Configuration (3 vessels in S1, 2 vessels in S2, 3 elements/vessel)"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Total 15 elements across 5 pressure vessels (555 m2 total active area)."
+
+  membrane_replacement_labour_kes:
+    value: 15000.0
+    unit: "KES/skid"
+    source: "Contractor re-shimming and membrane change-out service quotation"
+    source_type: "SCENARIO ASSUMPTION"
+    reference_year: 2024
+    notes: "Turnkey labour fee for unloading, inspecting, and repacking 15 pressure vessels."
+
+  membrane_replacement_interval_hours:
+    value: 24000.0
+    unit: "hours"
+    source: "Manufacturer membrane lifetime expectation under non-compacted operating stress"
+    source_type: "SOURCE-BACKED"
+    reference_year: 2024
+    notes: "Nominal 3 operating years (24,000 h) under benign fouling index."
+
+  membrane_disposal_cost_kes:
+    value: 1500.0
+    unit: "KES/element"
+    source: "Hazardous waste containment and landfill disposal fee"
+    source_type: "SCENARIO ASSUMPTION"
+    reference_year: 2024
+    notes: "Environmental disposal cost per spent element."
+
+digital_twin_system:
+  digital_twin_implementation_capex:
+    value: 1200000.0
+    unit: "KES"
+    source: "Industrial edge computing server, telemetry gateway, and software setup quote"
+    source_type: "SCENARIO ASSUMPTION"
+    reference_year: 2024
+    notes: "Turnkey hardware, sensor instrumentation integration, and supervisory interface deployment."
+
+  digital_twin_annual_opex:
+    value: 250000.0
+    unit: "KES/year"
+    source: "Edge hardware maintenance, software updates, cloud telemetry backup"
+    source_type: "SCENARIO ASSUMPTION"
+    reference_year: 2024
+    notes: "Annual recurring support, model monitoring, and cloud connectivity."
+
+financial_discounting:
+  discount_rate:
+    value: 0.08
+    unit: "percent/year"
+    source: "Central Bank of Kenya real corporate discount rate benchmark"
+    source_type: "SCENARIO ASSUMPTION"
+    reference_year: 2024
+    notes: "8.0% annual weighted average cost of capital (WACC) for industrial investments."
+
+  project_lifetime_years:
+    value: 5
+    unit: "years"
+    source: "Standard industrial equipment evaluation period"
+    source_type: "SCENARIO ASSUMPTION"
+    reference_year: 2024
+    notes: "5-year economic horizon for technology adoption and lifecycle assessment."

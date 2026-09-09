@@ -1,0 +1,6 @@
+Component,Comparison,Annual_Value_KES,Percentage_of_Total
+Value 1: Steady-State Optimization,Fixed Strategy D vs Fixed Baseline,11829.519124648534,0.4247263389166822
+Value 2: Fouling-Aware Reactive Maintenance,Fixed D Reactive CIP vs Fixed D Monthly CIP,4088117.9322725665,146.77953889231762
+Value 3: Predictive Pressure & CIP Optimization,Full Digital Twin vs Fixed D Reactive CIP,-1314737.7667750642,-47.20426523123429
+Value 4: Total Integrated Digital Twin Value,Full Digital Twin vs Fixed Baseline,2785209.684622151,100.0
+Incremental Digital Twin Value vs Fixed Strategy D,Full Digital Twin vs Optimized Fixed D,2773380.1654975023,99.57527366108332
