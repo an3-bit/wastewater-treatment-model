@@ -70,23 +70,72 @@ export default function OptimizationPage() {
         </div>
       </div>
 
+      {/* Executive ROI & Value Impact Highlights */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="bg-emerald-50/80 p-4 rounded-2xl border border-emerald-200 shadow-xs space-y-1">
+          <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider block">
+            Annual Power Savings
+          </span>
+          <div className="text-2xl font-black text-emerald-950">$3,240 / yr</div>
+          <p className="text-[11px] text-emerald-700 font-medium">
+            -5.72% SEC reduction vs legacy baseline
+          </p>
+        </div>
+
+        <div className="bg-sky-50/80 p-4 rounded-2xl border border-sky-200 shadow-xs space-y-1">
+          <span className="text-xs font-bold text-sky-800 uppercase tracking-wider block">
+            Water Reuse Volume
+          </span>
+          <div className="text-2xl font-black text-sky-950">505.4 m³ / day</div>
+          <p className="text-[11px] text-sky-700 font-medium">
+            70.22% recovery meets ZLD discharge limit
+          </p>
+        </div>
+
+        <div className="bg-indigo-50/80 p-4 rounded-2xl border border-indigo-200 shadow-xs space-y-1">
+          <span className="text-xs font-bold text-indigo-800 uppercase tracking-wider block">
+            Avoided Fresh Intake
+          </span>
+          <div className="text-2xl font-black text-indigo-950">$1,112 / day</div>
+          <p className="text-[11px] text-indigo-700 font-medium">
+            Calculated at $2.20/m³ municipal intake cost
+          </p>
+        </div>
+
+        <div className="bg-purple-50/80 p-4 rounded-2xl border border-purple-200 shadow-xs space-y-1">
+          <span className="text-xs font-bold text-purple-800 uppercase tracking-wider block">
+            Membrane Life Extension
+          </span>
+          <div className="text-2xl font-black text-purple-950">+14 Months</div>
+          <p className="text-[11px] text-purple-700 font-medium">
+            -15.15% peak recovery stress reduction
+          </p>
+        </div>
+      </div>
+
       {/* Dominance Proof Banner */}
-      <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-xs text-emerald-950 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
-        <div className="flex items-start gap-2.5">
-          <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+      <div className="bg-white border border-slate-200 rounded-2xl p-5 text-xs text-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
+        <div className="flex items-start gap-3">
+          <div className="p-2 rounded-xl bg-emerald-100 text-emerald-700 shrink-0">
+            <ShieldCheck className="w-5 h-5" />
+          </div>
           <div>
-            <strong className="font-bold text-emerald-900 block">
-              Pareto Dominance Proof: Strategy D Dominates Industrial Baseline
+            <strong className="text-sm font-bold text-slate-900 block">
+              Recommended Plant Setpoint: Strategy D (Balanced Optimum)
             </strong>
-            <p className="text-emerald-800 leading-relaxed mt-0.5">
-              Operating at P<sub>1</sub> = 16.06 bar, P<sub>2</sub> = 16.41 bar strictly dominates the original 13/18 bar baseline by delivering <strong>+0.86% higher recovery</strong> (70.22% vs 69.36%), <strong>-5.72% lower energy</strong> (0.7269 vs 0.7710 kWh/m³), and <strong>-15.15% lower peak element recovery stress</strong> (20.10% vs 23.69%).
+            <p className="text-slate-600 leading-relaxed mt-0.5">
+              PLC setpoints <strong>P₁ = 16.06 bar</strong> (HP Pump) and <strong>P₂ = 16.41 bar</strong> (Interstage Booster) strictly dominate all single-stage and baseline configurations.
             </p>
           </div>
         </div>
 
-        <span className="text-[11px] font-mono bg-emerald-200/60 text-emerald-900 px-2 py-1 rounded whitespace-nowrap self-start sm:self-auto font-semibold">
-          Dominance Verified
-        </span>
+        <button
+          onClick={() => handleSelectStrategy('strategy_d')}
+          className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-xs transition-colors flex items-center justify-center gap-2 whitespace-nowrap self-start sm:self-auto"
+        >
+          <CheckCircle2 className="w-4 h-4" />
+          <span>Apply Strategy D Setpoints</span>
+        </button>
       </div>
 
       {/* Interactive Pareto Scatter Plot */}

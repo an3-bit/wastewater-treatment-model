@@ -119,15 +119,20 @@ export function Header({ currentSimHour = 48.0 }: HeaderProps) {
           <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-amber-500 rounded-full ring-2 ring-white" />
         </button>
 
-        {/* Operator User */}
-        <div className="flex items-center pl-2 border-l border-slate-200">
-          <div
-            className="w-7 h-7 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 font-bold text-[11px]"
-            title="Process AI Group — Operator"
-          >
-            OP
+        {/* Operator User & Session Switcher */}
+        <Link
+          href="/login"
+          className="flex items-center gap-2 pl-2 border-l border-slate-200 hover:opacity-80 transition-opacity"
+          title="Switch Operator Persona / View Session"
+        >
+          <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-sky-600 to-indigo-600 text-white font-bold text-[10px] flex items-center justify-center shadow-xs">
+            EV
           </div>
-        </div>
+          <div className="hidden xl:block text-left text-[11px] leading-tight">
+            <span className="font-bold text-slate-800 block">Dr. E. Vance</span>
+            <span className="text-[10px] text-slate-400 font-mono">Chief Engineer</span>
+          </div>
+        </Link>
       </div>
 
       {/* Report Export Dossier Modal */}
