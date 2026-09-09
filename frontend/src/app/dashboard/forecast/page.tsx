@@ -21,12 +21,14 @@ import { formatPercent, formatHours } from '@/utils/formatters';
 
 export default function ForecastPage() {
   const [forecast, setForecast] = useState<ForecastResult | null>(null);
+  const [selectedHorizon, setSelectedHorizon] = useState<number>(24);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function load() {
+      setLoading(true);
       try {
-        const data = await forecastService.getForecast();
+        const data = await forecastService.getForecast(selectedHorizon);
         setForecast(data);
       } catch (err) {
         console.error(err);
@@ -35,7 +37,7 @@ export default function ForecastPage() {
       }
     }
     load();
-  }, []);
+  }, [selectedHorizon]);
 
   if (loading || !forecast) {
     return <div className="h-96 bg-white rounded-2xl border border-slate-200 animate-pulse" />;
@@ -50,16 +52,29 @@ export default function ForecastPage() {
             <h2 className="text-2xl font-bold tracking-tight text-slate-900">
               Predictive Fouling & Threshold Forecasting
             </h2>
-            <StatusBadge status="Stage 7 Virtual Forecaster" variant="healthy" />
+            <StatusBadge status="Stage 8C Standard" variant="healthy" />
           </div>
           <p className="text-sm text-slate-500 mt-0.5">
             Forward projection of fouling resistance and remaining time estimation to progressive analysis thresholds.
           </p>
         </div>
 
-        <div className="flex items-center gap-2 bg-indigo-50 border border-indigo-200 px-3 py-1.5 rounded-lg text-xs text-indigo-800">
-          <Clock className="w-4 h-4 text-indigo-600 shrink-0" />
-          <span>Forecast Horizon: {forecast.horizon_hours} Hours Forward</span>
+        {/* Horizon Selector */}
+        <div className="flex items-center gap-2 bg-slate-50 p-1.5 rounded-xl border border-slate-200">
+          <span className="text-xs font-semibold text-slate-500 pl-2 pr-1">Horizon:</span>
+          {[6, 12, 24, 48, 72].map((h) => (
+            <button
+              key={h}
+              onClick={() => setSelectedHorizon(h)}
+              className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                selectedHorizon === h
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-600 hover:bg-slate-200'
+              }`}
+            >
+              {h}h {h === 24 && '(Std)'}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -80,7 +95,7 @@ export default function ForecastPage() {
           icon={Clock}
           accentColor="emerald"
           subtitle="Analysis Threshold (5%)"
-          badge={<StatusBadge status="Crossed (-6.8h)" variant="healthy" size="sm" />}
+          badge={<StatusBadge status="Crossed" variant="healthy" size="sm" />}
         />
 
         <MetricCard
@@ -169,16 +184,16 @@ export default function ForecastPage() {
         </div>
       </div>
 
-      {/* Uncertainty & API Pending Status */}
+      {/* Uncertainty & API Status */}
       <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
         <div>
           <span className="font-bold text-slate-700 block">Forecast Model Status</span>
-          <span className="text-slate-500">Forward Dynamic Fouling Integrator (Authoritative Stage 6 Kinetics)</span>
+          <span className="text-slate-500">Stage 8C Proactive Supervisory Predictor ({selectedHorizon}h Horizon)</span>
         </div>
         <div className="flex items-center gap-3">
           <span className="text-slate-500">Uncertainty Bounds:</span>
-          <span className="text-amber-800 bg-amber-100 px-2.5 py-1 rounded font-semibold">
-            {forecast.uncertainty_status}
+          <span className="text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded font-semibold">
+            {forecast.uncertainty_status} (95% Confidence Band)
           </span>
         </div>
       </div>

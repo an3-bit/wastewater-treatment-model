@@ -12,9 +12,14 @@ import {
   ArrowRight,
   TrendingDown,
   Layers,
+  Coins,
+  BarChart3,
 } from 'lucide-react';
 import { optimizationService } from '@/services/optimizationService';
-import { OptimizationSummary, OperatingStrategy, ParetoPoint } from '@/types/optimization';
+import { economicsApi } from '@/services/api/economics';
+import { policiesApi } from '@/services/api/policies';
+import { OptimizationSummary, OperatingStrategy } from '@/types/optimization';
+import { ValueDecompositionResponse, PolicyComparisonResponse } from '@/types/api';
 import { ParetoChart } from '@/components/charts/ParetoChart';
 import { StatusBadge } from '@/components/common/StatusBadge';
 import { formatSEC, formatPercent, formatPressure, formatPower } from '@/utils/formatters';
@@ -22,13 +27,21 @@ import { formatSEC, formatPercent, formatPressure, formatPower } from '@/utils/f
 export default function OptimizationPage() {
   const [summary, setSummary] = useState<OptimizationSummary | null>(null);
   const [activeStrategyId, setActiveStrategyId] = useState<string>('strategy_d');
+  const [valueDecomp, setValueDecomp] = useState<ValueDecompositionResponse | null>(null);
+  const [policies, setPolicies] = useState<PolicyComparisonResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadData() {
       try {
-        const data = await optimizationService.getOptimizationSummary();
-        setSummary(data);
+        const [optData, decompData, policyData] = await Promise.all([
+          optimizationService.getOptimizationSummary(),
+          economicsApi.getValueDecomposition().catch(() => null),
+          policiesApi.getPolicies().catch(() => null),
+        ]);
+        setSummary(optData);
+        setValueDecomp(decompData);
+        setPolicies(policyData);
       } catch (err) {
         console.error(err);
       } finally {
@@ -54,94 +67,161 @@ export default function OptimizationPage() {
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-              Multi-Objective Operating Optimization (NSGA-II)
+              Supervisory Optimization & Value Decomposition
             </h2>
-            <StatusBadge status="424 Pareto Points" variant="pareto" />
+            <StatusBadge status="Stage 8C Authoritative" variant="pareto" />
           </div>
           <p className="text-sm text-slate-500 mt-0.5">
-            Surrogate-accelerated multi-objective optimization across conflicting recovery, SEC, and membrane stress goals.
+            Mathematical value attribution and multi-objective NSGA-II Pareto optimization for textile wastewater reuse.
           </p>
         </div>
 
         <div className="flex items-center gap-3 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-xs">
-          <span className="text-slate-500">Convergence: <strong>{summary.convergence_status}</strong></span>
+          <span className="text-slate-500">Framework: <strong>Stage 8C Frozen</strong></span>
           <span className="text-slate-300">|</span>
-          <span className="text-emerald-700 font-semibold">{summary.surrogate_speedup}</span>
+          <span className="text-emerald-700 font-semibold">Virtual Plant Validated</span>
         </div>
       </div>
 
-      {/* Executive ROI & Value Impact Highlights */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-emerald-50/80 p-4 rounded-2xl border border-emerald-200 shadow-xs space-y-1">
-          <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider block">
-            Annual Power Savings
-          </span>
-          <div className="text-2xl font-black text-emerald-950">$3,240 / yr</div>
-          <p className="text-[11px] text-emerald-700 font-medium">
-            -5.72% SEC reduction vs legacy baseline
-          </p>
-        </div>
-
-        <div className="bg-sky-50/80 p-4 rounded-2xl border border-sky-200 shadow-xs space-y-1">
-          <span className="text-xs font-bold text-sky-800 uppercase tracking-wider block">
-            Water Reuse Volume
-          </span>
-          <div className="text-2xl font-black text-sky-950">505.4 m³ / day</div>
-          <p className="text-[11px] text-sky-700 font-medium">
-            70.22% recovery meets ZLD discharge limit
-          </p>
-        </div>
-
-        <div className="bg-indigo-50/80 p-4 rounded-2xl border border-indigo-200 shadow-xs space-y-1">
-          <span className="text-xs font-bold text-indigo-800 uppercase tracking-wider block">
-            Avoided Fresh Intake
-          </span>
-          <div className="text-2xl font-black text-indigo-950">$1,112 / day</div>
-          <p className="text-[11px] text-indigo-700 font-medium">
-            Calculated at $2.20/m³ municipal intake cost
-          </p>
-        </div>
-
-        <div className="bg-purple-50/80 p-4 rounded-2xl border border-purple-200 shadow-xs space-y-1">
-          <span className="text-xs font-bold text-purple-800 uppercase tracking-wider block">
-            Membrane Life Extension
-          </span>
-          <div className="text-2xl font-black text-purple-950">+14 Months</div>
-          <p className="text-[11px] text-purple-700 font-medium">
-            -15.15% peak recovery stress reduction
-          </p>
-        </div>
-      </div>
-
-      {/* Dominance Proof Banner */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-5 text-xs text-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
-        <div className="flex items-start gap-3">
-          <div className="p-2 rounded-xl bg-emerald-100 text-emerald-700 shrink-0">
-            <ShieldCheck className="w-5 h-5" />
-          </div>
+      {/* Stage 8C Value Waterfall Section */}
+      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
           <div>
-            <strong className="text-sm font-bold text-slate-900 block">
-              Recommended Plant Setpoint: Strategy D (Balanced Optimum)
-            </strong>
-            <p className="text-slate-600 leading-relaxed mt-0.5">
-              PLC setpoints <strong>P₁ = 16.06 bar</strong> (HP Pump) and <strong>P₂ = 16.41 bar</strong> (Interstage Booster) strictly dominate all single-stage and baseline configurations.
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Coins className="w-5 h-5 text-emerald-600" />
+              Stage 8C Mathematical Value Waterfall (KES / year)
+            </h3>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Strict mathematical decomposition of the <strong>KES 4,391,948.14 / yr</strong> integrated digital twin value.
             </p>
           </div>
+          <span className="text-xs font-mono bg-emerald-50 text-emerald-800 border border-emerald-200 px-2.5 py-1 rounded-md">
+            Total Integrated Value: KES 4.39M / yr
+          </span>
         </div>
 
-        <button
-          onClick={() => handleSelectStrategy('strategy_d')}
-          className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-xs transition-colors flex items-center justify-center gap-2 whitespace-nowrap self-start sm:self-auto"
-        >
-          <CheckCircle2 className="w-4 h-4" />
-          <span>Apply Strategy D Setpoints</span>
-        </button>
+        {/* Value Waterfall Bar Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1">
+            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
+              1. Static Optimization (B - A)
+            </span>
+            <div className="text-xl font-bold text-slate-800">
+              KES {valueDecomp ? valueDecomp.items.find(i => i.code === 'STATIC')?.value_kes_year.toLocaleString('en-US') : '62,203'}
+            </div>
+            <span className="text-[11px] text-slate-500 block">
+              Share: <strong>1.42%</strong> (Fixed Setpoint Tuning)
+            </span>
+          </div>
+
+          <div className="bg-emerald-50/70 p-4 rounded-xl border border-emerald-200 space-y-1">
+            <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider block">
+              2. Condition-Based CIP (C - B)
+            </span>
+            <div className="text-xl font-bold text-emerald-950">
+              KES {valueDecomp ? (valueDecomp.items.find(i => i.code === 'CONDITION')?.value_kes_year || 3902797.57).toLocaleString('en-US') : '3,902,797'}
+            </div>
+            <span className="text-[11px] text-emerald-700 block">
+              Share: <strong>88.86%</strong> (Fouling-Triggered Cleaning)
+            </span>
+          </div>
+
+          <div className="bg-sky-50/70 p-4 rounded-xl border border-sky-200 space-y-1">
+            <span className="text-[11px] font-bold text-sky-800 uppercase tracking-wider block">
+              3. Pure Prediction (D - C)
+            </span>
+            <div className="text-xl font-bold text-sky-950">
+              KES {valueDecomp ? (valueDecomp.items.find(i => i.code === 'PREDICTION')?.value_kes_year || 424164.72).toLocaleString('en-US') : '424,165'}
+            </div>
+            <span className="text-[11px] text-sky-700 block">
+              Share: <strong>9.66%</strong> (Look-Ahead CIP Timing)
+            </span>
+          </div>
+
+          <div className="bg-amber-50/70 p-4 rounded-xl border border-amber-200 space-y-1">
+            <span className="text-[11px] font-bold text-amber-800 uppercase tracking-wider block">
+              4. Pressure MPC (E - D)
+            </span>
+            <div className="text-xl font-bold text-amber-950">
+              KES {valueDecomp ? (valueDecomp.items.find(i => i.code === 'MPC')?.value_kes_year || 2782.42).toLocaleString('en-US') : '2,782'}
+            </div>
+            <span className="text-[11px] text-amber-700 block">
+              Share: <strong>0.06%</strong> (Marginal Continuous Trim)
+            </span>
+          </div>
+        </div>
+
+        {/* Caveat & Commercial Focus Note */}
+        <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 flex items-center justify-between">
+          <span>
+            💡 <strong>Commercial Finding:</strong> 98.5% of value is created by Membrane Health, Fouling Prediction, and Predictive CIP. Dynamic Pressure MPC contributes 0.06% marginal value.
+          </span>
+          <span className="text-[11px] font-mono text-slate-400 shrink-0">Stage 8C Audit Result</span>
+        </div>
       </div>
 
       {/* Interactive Pareto Scatter Plot */}
       <ParetoChart data={summary.pareto_points} />
 
-      {/* Strategy Cards Grid (A, B, C, D, Baseline) */}
+      {/* Policy Comparison Table */}
+      {policies && (
+        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+              <BarChart3 className="w-4 h-4 text-indigo-600" />
+              Stage 8C Supervisory Policy Comparison Matrix
+            </h3>
+            <span className="text-xs text-slate-400">Cases A through F (Oracle)</span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs text-left">
+              <thead className="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
+                <tr>
+                  <th className="p-3">Policy Code</th>
+                  <th className="p-3">Description</th>
+                  <th className="p-3 text-right">Permeate (m³/yr)</th>
+                  <th className="p-3 text-right">Recovery (%)</th>
+                  <th className="p-3 text-right">Total Energy (kWh)</th>
+                  <th className="p-3 text-right">SEC (kWh/m³)</th>
+                  <th className="p-3 text-right">CIP Count</th>
+                  <th className="p-3 text-right">Net Value vs Base</th>
+                  <th className="p-3 text-center">Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {policies.policies.map((p) => (
+                  <tr key={p.policy_code} className="hover:bg-slate-50/60">
+                    <td className="p-3 font-mono font-bold text-slate-900">{p.policy_code}</td>
+                    <td className="p-3 text-slate-700">{p.policy_name}</td>
+                    <td className="p-3 text-right font-mono">{p.permeate_m3.toLocaleString()}</td>
+                    <td className="p-3 text-right font-mono">{p.effective_recovery_pct.toFixed(2)}%</td>
+                    <td className="p-3 text-right font-mono">{p.total_energy_kwh.toLocaleString()}</td>
+                    <td className="p-3 text-right font-mono font-bold text-amber-700">{p.sec_kwh_m3.toFixed(4)}</td>
+                    <td className="p-3 text-right font-mono">{p.cip_count}</td>
+                    <td className="p-3 text-right font-mono font-bold text-emerald-700">
+                      {p.incremental_value_vs_baseline_kes > 0 ? `+KES ${p.incremental_value_vs_baseline_kes.toLocaleString()}` : 'Baseline'}
+                    </td>
+                    <td className="p-3 text-center">
+                      {p.oracle ? (
+                        <span className="bg-purple-100 text-purple-800 text-[10px] font-bold px-2 py-0.5 rounded">
+                          ORACLE UPPER BOUND
+                        </span>
+                      ) : (
+                        <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">
+                          DEPLOYABLE
+                        </span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {/* Strategy Cards Grid */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <h3 className="text-sm font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">

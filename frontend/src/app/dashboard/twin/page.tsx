@@ -110,7 +110,10 @@ export default function LiveTwinPage() {
             <h2 className="text-2xl font-bold tracking-tight text-slate-900">
               Live Process Flow Digital Twin
             </h2>
-            <StatusBadge status="P&ID Interactive" variant="normal" />
+            <StatusBadge status="Virtual Plant" variant="virtual" />
+            <span className="text-[11px] font-medium bg-amber-50 text-amber-700 border border-amber-200 px-2.5 py-0.5 rounded-md">
+              Industrial Validation Pending
+            </span>
           </div>
           <p className="text-sm text-slate-500 mt-0.5">
             Two-stage concentrate-staged reverse osmosis system with MBR pre-treatment. Click stages for vessel-level analytics.
@@ -119,8 +122,8 @@ export default function LiveTwinPage() {
 
         <div className="flex items-center gap-3 text-xs bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg">
           <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping" />
-            <span className="font-semibold text-slate-700">Dynamic Stream Transport</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+            <span className="font-semibold text-slate-700">6-Zone EKF Live</span>
           </span>
           <span className="text-slate-300">|</span>
           <span className="text-slate-500">Topology A (Concentrate Staged)</span>

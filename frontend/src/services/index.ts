@@ -1,4 +1,4 @@
-export * from './api';
+export * from './api/index';
 export * from './digitalTwinService';
 export * from './sensorService';
 export * from './membraneService';

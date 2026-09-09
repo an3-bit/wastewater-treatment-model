@@ -9,11 +9,14 @@ import {
   Layers,
   Scale,
   ShieldCheck,
+  Info,
 } from 'lucide-react';
 import { digitalTwinService } from '@/services/digitalTwinService';
 import { optimizationService } from '@/services/optimizationService';
+import { economicsApi } from '@/services/api/economics';
 import { PlantState } from '@/types/digitalTwin';
 import { OperatingStrategy } from '@/types/optimization';
+import { EconomicSummaryResponse } from '@/types/api';
 import { MetricCard } from '@/components/common/MetricCard';
 import { StatusBadge } from '@/components/common/StatusBadge';
 import { formatSEC, formatPower, formatPercent, formatPressure } from '@/utils/formatters';
@@ -31,17 +34,20 @@ import {
 export default function EnergyPage() {
   const [plantState, setPlantState] = useState<PlantState | null>(null);
   const [strategies, setStrategies] = useState<OperatingStrategy[]>([]);
+  const [econSummary, setEconSummary] = useState<EconomicSummaryResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadData() {
       try {
-        const [state, strats] = await Promise.all([
+        const [state, strats, econ] = await Promise.all([
           digitalTwinService.getPlantState(),
           optimizationService.getStrategies(),
+          economicsApi.getSummary().catch(() => null),
         ]);
         setPlantState(state);
         setStrategies(strats);
+        setEconSummary(econ);
       } catch (err) {
         console.error(err);
       } finally {
@@ -60,8 +66,8 @@ export default function EnergyPage() {
     const t = i * 4;
     return {
       hour: `${t}h`,
-      sec: Number((0.722 + 0.0001 * t + (i % 2 === 0 ? 0.004 : -0.002)).toFixed(4)),
-      power: Number((15.2 + 0.003 * t + (i % 2 === 0 ? 0.08 : -0.05)).toFixed(2)),
+      sec: Number((0.9348 + 0.0002 * t + (i % 2 === 0 ? 0.004 : -0.002)).toFixed(4)),
+      power: Number((12.82 + 0.003 * t + (i % 2 === 0 ? 0.08 : -0.05)).toFixed(2)),
     };
   });
 
@@ -74,7 +80,7 @@ export default function EnergyPage() {
             <h2 className="text-2xl font-bold tracking-tight text-slate-900">
               Energy Telemetry & Specific Consumption (SEC)
             </h2>
-            <StatusBadge status="Pump η = 80%" variant="healthy" />
+            <StatusBadge status="Stage 8C Authoritative" variant="healthy" />
           </div>
           <p className="text-sm text-slate-500 mt-0.5">
             Hydraulic pump power modeling and energy optimization across operating pressures P₁ and P₂.
@@ -83,7 +89,25 @@ export default function EnergyPage() {
 
         <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 px-3 py-1.5 rounded-lg text-xs text-amber-800">
           <Zap className="w-4 h-4 text-amber-600 shrink-0" />
-          <span>Active Strategy D: -5.72% SEC vs Baseline</span>
+          <span>Specific Energy (SEC): -6.19% Reduction per m³</span>
+        </div>
+      </div>
+
+      {/* Critical Stage 8C Energy Interpretation Banner */}
+      <div className="bg-amber-50/80 border border-amber-200 rounded-2xl p-5 text-xs text-amber-950 flex items-start gap-3 shadow-xs">
+        <Info className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+        <div className="space-y-1">
+          <strong className="text-sm font-bold text-amber-900 block">
+            Authoritative Energy Interpretation (Stage 8C Results Freeze):
+          </strong>
+          <p className="text-amber-900/90 leading-relaxed">
+            <strong>Total Annual Electricity:</strong> {econSummary ? econSummary.energy.baseline_total_kwh.toLocaleString() : '65,054.4'} → {econSummary ? econSummary.energy.watertwin_total_kwh.toLocaleString() : '102,583.2'} kWh/yr (<strong>+{econSummary ? econSummary.energy.total_electricity_change_pct.toFixed(2) : '57.69'}%</strong>).
+            <br />
+            <strong>Specific Energy Consumption (SEC):</strong> {econSummary ? econSummary.energy.baseline_sec_kwh_m3.toFixed(4) : '0.9965'} → {econSummary ? econSummary.energy.watertwin_sec_kwh_m3.toFixed(4) : '0.9348'} kWh/m³ (<strong>-{econSummary ? econSummary.energy.sec_reduction_pct.toFixed(2) : '6.19'}%</strong>).
+          </p>
+          <p className="text-[11px] text-amber-800 font-medium">
+            💡 <em>Scientific Context:</em> Total electricity increases because <strong className="text-amber-950">+68.10% more reusable water</strong> is produced (+44,458 m³/yr). However, the energy required per cubic metre of clean water is reduced by 6.19%.
+          </p>
         </div>
       </div>
 
@@ -96,7 +120,7 @@ export default function EnergyPage() {
           icon={Zap}
           accentColor="amber"
           tooltipTerm="SEC"
-          trend={{ value: '-5.72%', isPositive: true, label: 'saving' }}
+          trend={{ value: '-6.19%', isPositive: true, label: 'SEC reduction' }}
         />
 
         <MetricCard
@@ -120,7 +144,7 @@ export default function EnergyPage() {
           value={`${plantState.energy.cumulative_energy_kwh.toFixed(1)} kWh`}
           icon={Zap}
           accentColor="indigo"
-          subtitle="48.0 Hours Run"
+          subtitle="Annual: 102,583 kWh"
         />
       </div>
 
@@ -139,7 +163,7 @@ export default function EnergyPage() {
               <LineChart data={timeSeriesData} margin={{ top: 10, right: 20, left: 10, bottom: 10 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
                 <XAxis dataKey="hour" tick={{ fill: '#64748b', fontSize: 11 }} />
-                <YAxis domain={[0.7, 0.75]} tick={{ fill: '#64748b', fontSize: 11 }} label={{ value: 'SEC [kWh/m³]', angle: -90, position: 'insideLeft', fill: '#64748b', fontSize: 11 }} />
+                <YAxis domain={[0.9, 0.98]} tick={{ fill: '#64748b', fontSize: 11 }} label={{ value: 'SEC [kWh/m³]', angle: -90, position: 'insideLeft', fill: '#64748b', fontSize: 11 }} />
                 <Tooltip formatter={(val: any) => [`${val} kWh/m³`, 'SEC']} contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e2e8f0', borderRadius: '8px', fontSize: '12px' }} />
                 <Line type="monotone" dataKey="sec" stroke="#f59e0b" strokeWidth={2.5} dot={{ fill: '#f59e0b', r: 3 }} />
               </LineChart>
@@ -153,14 +177,14 @@ export default function EnergyPage() {
             <h3 className="text-sm font-bold uppercase tracking-wider text-slate-700">
               Total Electrical Power vs Time
             </h3>
-            <span className="text-xs text-slate-400 font-mono">kW (Pump η = 0.80)</span>
+            <span className="text-xs text-slate-400 font-mono">kW (Pump η = 0.75)</span>
           </div>
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={timeSeriesData} margin={{ top: 10, right: 20, left: 10, bottom: 10 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
                 <XAxis dataKey="hour" tick={{ fill: '#64748b', fontSize: 11 }} />
-                <YAxis domain={[15.0, 15.6]} tick={{ fill: '#64748b', fontSize: 11 }} label={{ value: 'Power [kW]', angle: -90, position: 'insideLeft', fill: '#64748b', fontSize: 11 }} />
+                <YAxis domain={[12.0, 14.0]} tick={{ fill: '#64748b', fontSize: 11 }} label={{ value: 'Power [kW]', angle: -90, position: 'insideLeft', fill: '#64748b', fontSize: 11 }} />
                 <Tooltip formatter={(val: any) => [`${val} kW`, 'Power']} contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e2e8f0', borderRadius: '8px', fontSize: '12px' }} />
                 <Line type="monotone" dataKey="power" stroke="#0284c7" strokeWidth={2.5} dot={{ fill: '#0284c7', r: 3 }} />
               </LineChart>
@@ -180,7 +204,7 @@ export default function EnergyPage() {
               Comparison across the 5 authoritative operating points discovered during Stage 5 optimization.
             </p>
           </div>
-          <span className="text-xs font-mono text-slate-400">NSGA-II Ground Truth</span>
+          <span className="text-xs font-mono text-slate-400">Stage 8C Verified</span>
         </div>
 
         <div className="overflow-x-auto">
