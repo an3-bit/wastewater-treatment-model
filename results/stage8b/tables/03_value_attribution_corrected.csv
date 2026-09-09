@@ -1,0 +1,7 @@
+Component,Annual_Value_KES,Percentage_of_Total,Description
+Value 1: Static Optimization (B - A),62203.43142201938,1.4163061467161107,Fixed Baseline (13/18) -> Fixed Strategy D (16.06/16.41)
+Value 2: Condition-Based Maintenance (C - B),3902797.5691528553,88.86256047641746,Fixed 720h Calendar CIP -> Reactive 15% Threshold CIP with Lockout
+Value 3: Value of Prediction (D - C),424164.71583971754,9.65778061644403,Reactive Current State Only -> Predictive Multi-Horizon Cost Optimum
+Value 4: Value of Supervisory MPC (E - D),2782.4203809797764,0.06335276042239128,Fixed Pressures -> Receding-Horizon Adaptive Pressure Modulation
+Value 5: Estimation Error Loss (F - E),0.0,0.0,EKF Virtual Sensing -> Oracle Perfect State Visibility Upper Bound
+TOTAL INTEGRATED VALUE (E - A),4391948.136795572,100.0,Complete Supervisory Digital Twin vs Unoptimized Legacy Baseline

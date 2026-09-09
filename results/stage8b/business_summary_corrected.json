@@ -1,0 +1,75 @@
+{
+  "model_version": "2.0-pressure-corrected",
+  "status": "virtual-plant techno-economic audit",
+  "annual_available_feed_m3": 240093.8,
+  "baseline": {
+    "permeate_m3": 65279.7,
+    "effective_recovery_pct": 27.19,
+    "sec_kwh_m3": 0.9965,
+    "energy_kwh": 65054.4,
+    "cip_count": 12,
+    "net_benefit_kes": 7108175.39,
+    "lcow_kes_m3": 19.11
+  },
+  "fixed_D": {
+    "permeate_m3": 67471.8,
+    "effective_recovery_pct": 28.1,
+    "sec_kwh_m3": 1.1997,
+    "energy_kwh": 80947.7,
+    "cip_count": 12,
+    "net_benefit_kes": 7170378.82,
+    "lcow_kes_m3": 21.73
+  },
+  "reactive": {
+    "permeate_m3": 102689.8,
+    "effective_recovery_pct": 42.77,
+    "sec_kwh_m3": 0.9699,
+    "energy_kwh": 99597.9,
+    "cip_count": 48,
+    "net_benefit_kes": 11073176.39,
+    "lcow_kes_m3": 20.17
+  },
+  "predictive_CIP": {
+    "permeate_m3": 109708.9,
+    "effective_recovery_pct": 45.69,
+    "sec_kwh_m3": 0.9345,
+    "energy_kwh": 102521.6,
+    "cip_count": 67,
+    "net_benefit_kes": 11497341.11,
+    "lcow_kes_m3": 23.2
+  },
+  "predictive_MPC": {
+    "permeate_m3": 109737.3,
+    "effective_recovery_pct": 45.71,
+    "sec_kwh_m3": 0.9348,
+    "energy_kwh": 102583.2,
+    "cip_count": 67,
+    "net_benefit_kes": 11500123.53,
+    "lcow_kes_m3": 23.2
+  },
+  "oracle": {
+    "permeate_m3": 109737.3,
+    "effective_recovery_pct": 45.71,
+    "sec_kwh_m3": 0.9348,
+    "energy_kwh": 102583.2,
+    "cip_count": 67,
+    "net_benefit_kes": 11500123.53,
+    "lcow_kes_m3": 23.2
+  },
+  "value_decomposition": {
+    "steady_state_optimization_kes": 62203.43,
+    "condition_monitoring_kes": 3902797.57,
+    "prediction_kes": 424164.72,
+    "supervisory_mpc_kes": 2782.42,
+    "integrated_value_kes": 4391948.14,
+    "identity_verified": true
+  },
+  "prediction_economically_positive": true,
+  "mpc_economically_positive": true,
+  "best_policy": "CASE_E",
+  "best_policy_net_value_kes": 11500123.53,
+  "optimal_forecast_horizon_h": 24,
+  "probability_prediction_adds_value": 1.0,
+  "probability_mpc_adds_value": 1.0,
+  "scientific_caveat": "All metrics are model-predicted on virtual-plant synthetic industrial disturbance profiles and require in-situ industrial pilot trial validation."
+}

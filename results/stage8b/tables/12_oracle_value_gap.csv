@@ -1,0 +1,4 @@
+Architecture,Net_Benefit_KES,Permeate_Produced_m3,SEC_kWh_m3,LCOW_KES_m3
+EKF Virtual Sensing Digital Twin (Case E),11500123.527543593,109737.28041639569,0.9348070275161714,23.203129839680475
+Oracle Benchmark (Perfect State Visibility Upper Bound),11500123.527543593,109737.28041639569,0.9348070275161714,23.203129839680475
+Estimation Loss Value Gap (Oracle - EKF),0.0,0.0,0.0,0.0

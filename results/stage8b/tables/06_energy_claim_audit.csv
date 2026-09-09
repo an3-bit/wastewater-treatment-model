@@ -1,0 +1,8 @@
+Policy_Code,Total_Energy_kWh_yr,Delta_Total_Energy_vs_Base_kWh,Average_SEC_kWh_m3,SEC_Reduction_vs_Base_Pct,Scientifically_Accurate_Claim
+CASE_A,65054.4,0.0,0.9965,0.0,Lower total energy and lower SEC.
+CASE_B,80947.7,15893.3,1.1997,-20.39,"Higher total energy due to +37% throughput, but lower specific energy intensity (kWh/m3)."
+CASE_C,99597.9,34543.5,0.9699,2.67,"Higher total energy due to +37% throughput, but lower specific energy intensity (kWh/m3)."
+CASE_C_CHATTER,102424.7,37370.3,0.8442,15.29,"Higher total energy due to +37% throughput, but lower specific energy intensity (kWh/m3)."
+CASE_D,102521.6,37467.1,0.9345,6.23,"Higher total energy due to +37% throughput, but lower specific energy intensity (kWh/m3)."
+CASE_E,102583.2,37528.8,0.9348,6.2,"Higher total energy due to +37% throughput, but lower specific energy intensity (kWh/m3)."
+ORACLE,102583.2,37528.8,0.9348,6.2,"Higher total energy due to +37% throughput, but lower specific energy intensity (kWh/m3)."

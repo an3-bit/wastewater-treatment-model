@@ -1,0 +1,8 @@
+Parameter,Value,Unit,Interpretation
+Break-Even Freshwater Purchase Price,29.210259539290732,KES/m3,Minimum freshwater cost where Digital Twin breaks even against baseline.
+Break-Even Electricity Tariff,130.76886089638782,KES/kWh,Maximum electricity cost before Digital Twin loses net economic advantage.
+Break-Even CIP Chemical Cost,89543.98248719223,KES/event,Maximum single-event CIP cost before predictive cleanings become uneconomic.
+Maximum Allowable Annual Digital Twin OPEX,4579744.705373553,KES/year,Maximum annual software fee to maintain positive ROI vs Fixed Strategy D.
+Maximum Justifiable Implementation CAPEX (1-Yr Payback),4329744.705373553,KES,Turnkey hardware/software budget for 12-month simple payback.
+Maximum Justifiable Implementation CAPEX (2-Yr Payback),8659489.410747105,KES,Turnkey hardware/software budget for 24-month simple payback.
+Maximum Justifiable Implementation CAPEX (3-Yr Payback),12989234.116120659,KES,Turnkey hardware/software budget for 36-month simple payback.

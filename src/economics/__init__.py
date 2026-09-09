@@ -1,5 +1,5 @@
 """
-Stage 8 Techno-Economic Analysis Package.
+Stage 8 and 8B Techno-Economic Analysis Package.
 """
 
 from economics.cost_config import EconomicConfig, EconomicParameter, load_economics_config
@@ -15,6 +15,12 @@ from economics.sensitivity import (
     calculate_break_even_conditions,
     SensitivityPoint,
     BreakEvenSummary,
+)
+from economics.audit_attribution import (
+    ValueDecompositionResult,
+    CorrectedBreakEvenSummary,
+    compute_value_attribution,
+    compute_corrected_break_even,
 )
 
 __all__ = [
@@ -41,4 +47,8 @@ __all__ = [
     "calculate_break_even_conditions",
     "SensitivityPoint",
     "BreakEvenSummary",
+    "ValueDecompositionResult",
+    "CorrectedBreakEvenSummary",
+    "compute_value_attribution",
+    "compute_corrected_break_even",
 ]

@@ -1,0 +1,8 @@
+Policy_Code,Instantaneous_Operating_Recovery_Pct,Annual_Effective_Recovery_Pct,Recovery_Gap_Pct_Points,Operating_Hours_Fraction_Pct,Explanation
+CASE_A,27.35,27.19,0.16,99.4,Operating recovery reflects clean/fouled fluxes during uptime; effective recovery includes downtime dilution.
+CASE_B,28.26,28.1,0.16,99.4,Operating recovery reflects clean/fouled fluxes during uptime; effective recovery includes downtime dilution.
+CASE_C,43.88,42.77,1.1,97.6,Operating recovery reflects clean/fouled fluxes during uptime; effective recovery includes downtime dilution.
+CASE_C_CHATTER,58.22,50.54,7.69,86.8,Operating recovery reflects clean/fouled fluxes during uptime; effective recovery includes downtime dilution.
+CASE_D,47.34,45.69,1.64,96.65,Operating recovery reflects clean/fouled fluxes during uptime; effective recovery includes downtime dilution.
+CASE_E,47.35,45.71,1.64,96.65,Operating recovery reflects clean/fouled fluxes during uptime; effective recovery includes downtime dilution.
+ORACLE,47.35,45.71,1.64,96.65,Operating recovery reflects clean/fouled fluxes during uptime; effective recovery includes downtime dilution.

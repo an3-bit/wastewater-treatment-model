@@ -1,0 +1,2 @@
+Metric,Case_D_Predictive_CIP_Fixed_P,Case_E_Predictive_CIP_Adaptive_MPC,Incremental_Value_of_MPC_E_minus_D_KES,Permeate_Volume_Delta_m3,Energy_Delta_kWh,Conclusion
+Net Annual Economic Benefit [KES/year],11497341.107162613,11500123.527543593,2782.4203809797764,28.35171786324645,61.61568453536893,Supervisory MPC is economically positive
