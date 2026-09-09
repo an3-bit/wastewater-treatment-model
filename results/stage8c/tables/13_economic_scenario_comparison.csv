@@ -1,0 +1,4 @@
+scenario,description,baseline_net_benefit_kes,digital_twin_net_benefit_kes,static_optimization_ba_kes,condition_monitoring_cb_kes,pure_prediction_dc_kes,supervisory_mpc_ed_kes,predictive_intelligence_ec_kes,integrated_value_ea_kes,treatment_lcow_kes_m3
+Conservative,"75% reuse demand, 2.0x CIP cost, 6h CIP downtime, 0 KES/m3 discharge credit",3568706.27,5424966.88,-10754.22,1831387.73,34275.03,1352.08,35627.1,1856260.61,26.12
+Base (Authoritative),"100% reuse demand, 1.0x CIP cost, 4h CIP downtime, 35 KES/m3 discharge credit",7108175.39,11500123.53,62203.43,3902797.57,424164.72,2782.42,426947.14,4391948.14,23.2
+Favourable,"100% reuse demand, 0.5x CIP cost, 2h CIP downtime, 35 KES/m3 discharge credit",7151069.5,11830133.81,62175.52,4080978.84,533146.05,2763.91,535909.95,4679064.31,21.73

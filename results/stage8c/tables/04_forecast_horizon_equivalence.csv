@@ -1,0 +1,6 @@
+horizon_h,net_benefit_kes,diff_vs_24h_kes,relative_diff_pct,economically_equivalent,computational_burden_rank,recommendation
+6,11500123.53,0.0,0.0,True,Rank 1 (Fastest to Slowest),Viable Low-Compute Alternative
+12,11500123.53,0.0,0.0,True,Rank 2 (Fastest to Slowest),Viable Low-Compute Alternative
+24,11500123.53,0.0,0.0,True,Rank 3 (Fastest to Slowest),Recommended Commercial Standard
+48,11500123.53,0.0,0.0,True,Rank 4,Viable Low-Compute Alternative
+72,11500123.53,0.0,0.0,True,Rank 5,Viable Low-Compute Alternative

@@ -1,0 +1,8 @@
+policy_code,policy_name,permeate_m3,effective_recovery_pct,total_energy_kwh,sec_kwh_m3,cip_count,cip_downtime_h,operating_uptime_h,treatment_lcow_kes_m3,net_annual_benefit_kes
+CASE_A,Case A: Fixed Baseline + Fixed Calendar CIP,65279.7,27.19,65054.4,0.9965,12,48.0,7952.0,19.11,7108175.39
+CASE_B,Case B: Fixed Strategy D + Fixed Calendar CIP,67471.8,28.1,80947.7,1.1997,12,48.0,7952.0,21.73,7170378.82
+CASE_C,Case C: Fixed Strategy D + Condition-Based CIP (Lockout 168h),102689.8,42.77,99597.9,0.9699,48,192.0,7808.0,20.17,11073176.39
+CASE_C_CHATTER,Case C (Chatter Audit): Fixed Strategy D + Unconstrained Reactive CIP,121334.3,50.54,102424.7,0.8442,264,1056.0,6944.0,34.64,11327712.62
+CASE_D,Case D: Fixed Strategy D + Predictive CIP,109708.9,45.69,102521.6,0.9345,67,268.0,7732.0,23.2,11497341.11
+CASE_E,Case E: Predictive CIP + Supervisory Pressure MPC,109737.3,45.71,102583.2,0.9348,67,268.0,7732.0,23.2,11500123.53
+ORACLE,Case F / Oracle: Perfect Visibility Upper Bound,109737.3,45.71,102583.2,0.9348,67,268.0,7732.0,23.2,11500123.53

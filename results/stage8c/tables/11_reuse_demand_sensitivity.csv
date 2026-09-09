@@ -1,0 +1,5 @@
+reuse_fraction,demand_cap_pct,baseline_useful_permeate_m3,digital_twin_useful_permeate_m3,unvalued_surplus_permeate_m3,baseline_net_benefit_kes,digital_twin_net_benefit_kes,integrated_value_ea_kes
+0.25,25%,16319.9,27434.3,82303.0,1777043.85,2875030.88,1097987.03
+0.5,50%,32639.9,54868.6,54868.6,3554087.7,5750061.76,2195974.07
+0.75,75%,48959.8,82303.0,27434.3,5331131.54,8625092.65,3293961.1
+1.0,100%,65279.7,109737.3,0.0,7108175.39,11500123.53,4391948.14

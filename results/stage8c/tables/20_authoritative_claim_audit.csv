@@ -1,0 +1,7 @@
+claim_id,topic,statement,verified,evidence_table
+CLM-01,Energy Consumption,"Digital Twin increases total power consumption by 57.69% due to 68.10% higher water throughput, but reduces SEC by 6.19% (0.9965 -> 0.9348 kWh/m3).",True,"01, 02, 16"
+CLM-02,Water Recovery,"Digital Twin recovers +44,457.6 m3/yr (+68.10%) of reusable water, increasing effective annual recovery from 27.19% to 45.71%.",True,"02, 17"
+CLM-03,Economic Attribution,"Total integrated benefit is +KES 4,391,948/yr (Base Case). 88.86% derives from condition monitoring (C-B), 9.66% from pure prediction (D-C), 1.42% from static tuning (B-A), and 0.06% from pressure MPC (E-D).",True,"02, 14"
+CLM-04,Forecast Horizon,"Horizons 12h, 24h, and 48h are economically equivalent within 0.1% tolerance; 24h is frozen as the authoritative industrial standard.",True,"03, 04"
+CLM-05,CIP Lockout Robustness,Prediction remains economically positive (+KES 424.2k to +KES 412.5k/yr) across all lockout constraints (168h to 1440h).,True,"05, 06"
+CLM-06,Commercial MVP Architecture,"Dynamic pressure MPC provides marginal value (+KES 2,782/yr, 0.06% of total benefit); the commercial MVP should focus on EKF health tracking + Predictive CIP recommendation.",True,"14, 15"

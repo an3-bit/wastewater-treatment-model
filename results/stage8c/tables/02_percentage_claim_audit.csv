@@ -1,0 +1,10 @@
+Metric,Value_Percent,Interpretation
+Water Production Increase (E vs A),68.1,Permeate volume increased from 65.3k m3 to 109.7k m3
+SEC Specific Energy Reduction (E vs A),-6.2,Specific energy intensity per m3 decreased by 6.19%
+Total Electricity Consumption Change (E vs A),57.69,Total plant power increased by 57.69% due to 68.10% higher water throughput
+Net Annual Economic Benefit Increase (E vs A),61.79,Net benefit expanded from KES 7.11M/yr to KES 11.50M/yr (+61.79%)
+Treatment LCOW Increase (E vs A),21.41,Treatment LCOW rose from KES 19.11 to 23.20/m3 due to CIP chemicals and membrane OPEX
+Static Optimization Share of Integrated Value,1.42,Pressure rebalancing (Strategy D) accounts for 1.42% of total gain
+Condition-Based Maintenance Share of Value,88.86,Online EKF resistance tracking and reactive cleaning accounts for 88.86% of total gain
+Pure Prediction Share of Integrated Value,9.66,Multi-step forecasting and economic timing accounts for 9.66% of total gain
+Supervisory MPC Share of Integrated Value,0.06,Adaptive dynamic pressure trim accounts for 0.06% of total gain

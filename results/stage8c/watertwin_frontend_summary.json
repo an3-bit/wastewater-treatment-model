@@ -1,0 +1,36 @@
+{
+  "water_impact": {
+    "baseline_m3": 65279.7,
+    "watertwin_m3": 109737.3,
+    "additional_useful_reuse_m3": 44457.5,
+    "water_increase_pct": 68.1
+  },
+  "energy_impact": {
+    "total_electricity_baseline_kwh": 65054.4,
+    "total_electricity_watertwin_kwh": 102583.2,
+    "total_electricity_change_pct": 57.69,
+    "sec_baseline_kwh_m3": 0.9965,
+    "sec_watertwin_kwh_m3": 0.9348,
+    "sec_reduction_pct": 6.2
+  },
+  "maintenance_impact": {
+    "calendar_cip_count": 12,
+    "condition_based_cip_count": 48,
+    "predictive_cip_count": 67
+  },
+  "economic_value_kes_year": {
+    "integrated_framework_value": 4391948.14,
+    "static_optimization_value": 62203.43,
+    "condition_based_value": 3902797.57,
+    "prediction_value": 424164.72,
+    "mpc_value": 2782.42,
+    "predictive_decision_intelligence": 426947.14
+  },
+  "scenario_ranges_kes_year": {
+    "conservative": 1856260.61,
+    "base": 4391948.14,
+    "favourable": 4679064.31
+  },
+  "treatment_lcow_kes_m3": 23.2,
+  "scientific_caveat": "Model-predicted virtual-plant result requiring industrial validation."
+}

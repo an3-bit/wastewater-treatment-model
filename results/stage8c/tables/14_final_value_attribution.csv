@@ -1,0 +1,7 @@
+Component,Value_KES_Year,Share_Percent,Classification
+Static Optimization (B - A),62203.43,1.42,Engineering Static Tuning
+Condition-Based Maintenance (C - B),3902797.57,88.86,Condition Monitoring Value
+Pure Predictive Forecasting (D - C),424164.72,9.66,Prediction Value
+Dynamic Supervisory MPC (E - D),2782.42,0.06,Adaptive MPC Trim (Marginal)
+Total Integrated Value (E - A),4391948.14,100.0,Full Framework Value
+Predictive Decision Intelligence (E - C),426947.14,9.72,Predictive Decision Value

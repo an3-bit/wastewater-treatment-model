@@ -422,6 +422,8 @@ def run_full_stage8b_audit_suite(
     fouling_multiplier: float = 1.0,
     cleaning_efficiency: float = 0.90,
     cleaning_lockout_hours: float = 168.0,
+    cleaning_duration_hours: float = 4.0,
+    forecast_horizon_h: int = 24,
     irreversible_fraction: float = 0.0,
     include_discharge_cost: bool = True,
     reuse_demand_limit: Optional[float] = None,
@@ -437,6 +439,7 @@ def run_full_stage8b_audit_suite(
         fouling_rate_multiplier=fouling_multiplier,
         cleaning_efficiency=cleaning_efficiency,
         cleaning_lockout_hours=cleaning_lockout_hours,
+        cleaning_duration_hours=cleaning_duration_hours,
         irreversible_fraction=irreversible_fraction,
         include_discharge_cost=include_discharge_cost,
         reuse_demand_limit_m3_h=reuse_demand_limit,
@@ -446,7 +449,7 @@ def run_full_stage8b_audit_suite(
     results: Dict[str, AuditPolicyResult] = {}
 
     for pol in policies:
-        res = sim.run_policy(pol)
+        res = sim.run_policy(pol, forecast_horizon_h=forecast_horizon_h)
         results[pol] = res
 
     # Compute comparative savings vs Baseline and vs Fixed D

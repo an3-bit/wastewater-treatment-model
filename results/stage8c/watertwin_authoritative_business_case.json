@@ -1,0 +1,56 @@
+{
+  "status": "virtual-plant techno-economic study",
+  "model_version": "2.0-pressure-corrected",
+  "annual_horizon_hours": 8000,
+  "energy": {
+    "baseline_total_kwh": 65054.4,
+    "digital_twin_total_kwh": 102583.2,
+    "total_energy_change_percent": 57.69,
+    "baseline_sec": 0.9965,
+    "digital_twin_sec": 0.9348,
+    "sec_change_percent": -6.2
+  },
+  "water": {
+    "baseline_permeate_m3": 65279.7,
+    "digital_twin_permeate_m3": 109737.3,
+    "additional_permeate_m3": 44457.5,
+    "water_change_percent": 68.1
+  },
+  "maintenance": {
+    "authoritative_cip_lockout_h": 168.0,
+    "baseline_cip_count": 12,
+    "condition_cip_count": 48,
+    "predictive_cip_count": 67,
+    "lockout_bound": false
+  },
+  "prediction": {
+    "selected_horizon_h": 24,
+    "economic_horizon_difference_material": false,
+    "prediction_value_kes_year": 424164.72
+  },
+  "economics": {
+    "integrated_value_vs_baseline_kes_year": 4391948.14,
+    "condition_based_value_kes_year": 3902797.57,
+    "predictive_intelligence_value_kes_year": 426947.14,
+    "mpc_value_kes_year": 2782.42,
+    "treatment_lcow_kes_m3": 23.2
+  },
+  "scenarios": {
+    "conservative": {
+      "description": "75% reuse, 2.0x CIP cost, 6h downtime, 0 discharge credit",
+      "integrated_value_kes_year": 1856260.61,
+      "digital_twin_net_benefit_kes": 5424966.88
+    },
+    "base": {
+      "description": "100% reuse, 1.0x CIP cost, 4h downtime, 35 discharge credit",
+      "integrated_value_kes_year": 4391948.14,
+      "digital_twin_net_benefit_kes": 11500123.53
+    },
+    "favourable": {
+      "description": "100% reuse, 0.5x CIP cost, 2h downtime, 35 discharge credit",
+      "integrated_value_kes_year": 4679064.31,
+      "digital_twin_net_benefit_kes": 11830133.81
+    }
+  },
+  "scientific_caveat": "Model-predicted virtual-plant result on synthetic industrial disturbance profiles; requires pilot-scale industrial validation."
+}

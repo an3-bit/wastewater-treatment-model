@@ -108,13 +108,16 @@ def generate_and_save_common_feed(
     return df
 
 
-def load_common_feed_trajectory(csv_path: Optional[Path] = None) -> pd.DataFrame:
-    """Load the authoritative common feed trajectory from CSV."""
+def load_common_feed_trajectory(csv_path: Optional[Path] = None, min_hours: int = 8000) -> pd.DataFrame:
+    """Load the authoritative common feed trajectory from CSV, generating 8000h if needed."""
     if csv_path is None:
         project_root = Path(__file__).resolve().parent.parent.parent
         csv_path = project_root / "results" / "stage8b" / "common_feed_trajectory.csv"
     
     if not csv_path.exists():
-        return generate_and_save_common_feed(csv_path)
+        return generate_and_save_common_feed(csv_path, total_clock_hours=min_hours)
     
-    return pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path)
+    if len(df) < min_hours:
+        return generate_and_save_common_feed(csv_path, total_clock_hours=min_hours)
+    return df
